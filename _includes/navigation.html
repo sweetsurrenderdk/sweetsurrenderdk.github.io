@@ -1,10 +1,6 @@
 <nav>
-    {% assign page_root = page.path | slice: 0, 10 %}
-
     {% for p in site.pages %}
-        {% assign this_root = p.path | slice: 0, 10 %}
-        
-        {% if p.id == "08beaf2af74a3dc65c17a424813ec9c38bac2ab4" && page_root == this_root %}
+        {% if p._id == "08beaf2af74a3dc65c17a424813ec9c38bac2ab4" && page._language == p._language %}
         <h2>{{ this_root }} {{ page_root }}</h2>
         {% endif %}
     {% endfor %} 
