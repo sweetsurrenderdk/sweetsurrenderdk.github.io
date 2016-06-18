@@ -1,7 +1,7 @@
 <nav>
     {% for p in site.pages %}
-        {% if p._id == "08beaf2af74a3dc65c17a424813ec9c38bac2ab4" && page._language == p._language %}
-        <h2>{{ this_root }} {{ page_root }}</h2>
+        {% if p._id == "08beaf2af74a3dc65c17a424813ec9c38bac2ab4" and page._language == p._language %}
+        <h2>{{ p.title }}</h2>
         {% endif %}
     {% endfor %} 
 </nav>
