@@ -5,6 +5,5 @@ pageLinks:
 languageLinks:
     - {code: en, text: English}
     - {text: Dansk, code: da}
-url: null
 
 ---
