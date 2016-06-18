@@ -1,0 +1,11 @@
+# Site settings
+title: Sweet Surrender
+description: >
+    This is Sweet Surrender
+baseurl: ""
+url: "http://sweetsurrender.dk"
+
+# Build settings
+markdown: kramdown
+exclude:
+- node_modules
