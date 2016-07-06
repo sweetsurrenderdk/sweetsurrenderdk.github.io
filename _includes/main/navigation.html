@@ -1,0 +1,7 @@
+<nav>
+    {% for p in site.pages %}
+        {% if p.url != "/" %}
+            <h2>{{ p.title }}</h2>
+        {% endif %}
+    {% endfor %} 
+</nav>

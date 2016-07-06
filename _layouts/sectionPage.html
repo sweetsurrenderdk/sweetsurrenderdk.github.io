@@ -1,0 +1,22 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html>
+    {% include main/head.html %}
+    
+    <body>
+        {% include main/navigation.html %}
+   
+        <div class="page">
+            {% for section in page.sections.items %}     
+                {% include endomon/render_section section = section %}
+            {% endfor %}
+
+            {% include main/footer.html %}
+        </div>
+        
+        {% include main/scripts.html %}
+    </body>
+</html>

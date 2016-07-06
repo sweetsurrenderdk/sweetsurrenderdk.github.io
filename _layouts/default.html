@@ -1,21 +1,18 @@
+---
+layout: compress
+---
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta content="IE=edge" http-equiv="X-UA-Compatible">
-        <meta content="width=device-width initial-scale=1" name="viewport">
-        <meta content="Sweet Surrender" name="description">
-        <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/client.css" rel="stylesheet">
-        <title>Sweet Surrender</title>
-    </head>
+    {% include main/head.html %}
+
     <body>
-        {% include navigation.html %}
+        {% include main/navigation.html %}
 
         {{ content }}
+        
+        {% include main/footer.html %}
 
-        <script src="/lib/jquery/jquery.min.js"></script>
-        <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/js/client.js"></script>
+        {% include main/scripts.html %}
     </body>
 </html>
