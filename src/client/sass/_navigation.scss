@@ -1,9 +1,114 @@
 nav {
     position: fixed;
-    height: 3em;
+    height: 5rem;
     width: 100%;
     background-color: $white;
     z-index: 50;
     top: 0px;
     left: 0px;
+    box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5);
+
+    .container {
+        height: 100%;
+        display: flex;
+
+        >a {
+            display: block;
+            text-decoration: none;
+            height: 100%;
+            line-height: 5rem;
+
+            &.nav-brand {
+                flex-grow: 1;
+
+                img {
+                    margin-top: 0.5rem;
+                    height: 4rem;
+                }
+            }
+        }
+
+        .widgets {
+            flex-grow: 1;
+            height: 100%;
+
+            .calendar-container {
+                position: fixed;
+                top: 5rem;
+                right: 0rem;
+                height: calc(100% - 5rem);
+                z-index: 50;
+
+                .calendar-events {
+                    float: right;
+                    height: 100%;
+                    width: 0rem;
+                    background-color: black;
+                    transition: width 0.5s ease;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                }
+
+                .backdrop {
+                    display: none;
+                    position: fixed;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    opacity: 0;
+                }
+
+                &.active {
+                    .calendar-events {
+                        width: 30rem;
+                    }
+
+                    .backdrop {
+                        display: block;
+                    }
+                }
+            }
+
+            .widgets-position-wrapper {
+                float: right;
+                display: flex;
+                height: 100%;
+
+                a, button {
+                    display: block;
+                    margin-top: 1rem;
+                    height: 3rem;
+                    width: 3rem;
+                    position: relative;
+                    
+                    .fa, img {
+                        height: 3rem;
+                        width: 3rem;
+                        display: block;
+                        line-height: 3rem;
+                        font-size: 1.5rem;
+                    }
+                }
+
+                .btn-toggle-calendar {
+                    position: relative;
+                    margin-left: 1rem;
+
+                    .icon-calendar-new-events {
+                        position: absolute;
+                        top: 0rem;
+                        right: 0rem;
+                        background-color: $red;
+                        color: $white;
+                        font-size: 0.6rem;
+                        border-radius: 50%;
+                        padding: 0.2rem;
+                        width: 1.2rem;
+                        height: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
 }

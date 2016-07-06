@@ -1,5 +1,44 @@
+@font-face {
+  font-family: 'Gochi Hand';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/gochi-hand-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Gochi Hand'), local('GochiHand-Regular'),
+       url('/public/fonts/gochi-hand-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/public/fonts/gochi-hand-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/public/fonts/gochi-hand-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/public/fonts/gochi-hand-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/public/fonts/gochi-hand-v7-latin-regular.svg#GochiHand') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/ubuntu-v9-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu'),
+       url('/public/fonts/ubuntu-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/public/fonts/ubuntu-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/public/fonts/ubuntu-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/public/fonts/ubuntu-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/public/fonts/ubuntu-v9-latin-regular.svg#Ubuntu') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/public/fonts/ubuntu-v9-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
+       url('/public/fonts/ubuntu-v9-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/public/fonts/ubuntu-v9-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/public/fonts/ubuntu-v9-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/public/fonts/ubuntu-v9-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/public/fonts/ubuntu-v9-latin-700.svg#Ubuntu') format('svg'); /* Legacy iOS */
+}
+
 body {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     
     * {
         font-size: 1rem;
@@ -11,7 +50,7 @@ body {
     }
 
     h1, h2, h3, h4 {
-        font-family: 'Lora', serif;
+        font-family: 'Gochi Hand', sans-serif;
     }
 
     h1, h2, h3, h4, h5, h6 {

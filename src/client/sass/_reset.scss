@@ -96,6 +96,7 @@ button {
 a {
     &, &:hover, &:focus, &:active {
         color: inherit;
+        text-decoration: none;
     }
 }
 
