@@ -1,7 +1,13 @@
 <nav>
-    {% for p in site.pages %}
-        {% if p.url != "/" %}
-            <h2>{{ p.title }}</h2>
-        {% endif %}
-    {% endfor %} 
+    <div class="container">
+        <a class="nav-brand" href="/">
+            <img src="/public/img/logo.png" />
+        </a>
+        
+        {% for p in site.pages %}
+            {% if p.showInNav %}
+                <a href="{{ p.url }}">{{ p.title }}</a>
+            {% endif %}
+        {% endfor %} 
+    </div>
 </nav>

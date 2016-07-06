@@ -1,0 +1,211 @@
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Condensed:400,700);
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: 0;
+  border-radius: 0px;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button;
+  /* for input */
+  -webkit-user-select: none;
+  /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+[role="button"] {
+  color: inherit;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: pre;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+button, button:hover, button:focus, button:active {
+  outline: 0; }
+
+a, a:hover, a:focus, a:active {
+  color: inherit; }
+
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  width: 100%; }
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: 3em; }
+  body .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px; }
+    @media (max-width: 1199px) {
+      body .container {
+        width: 700px; } }
+    @media (max-width: 991px) {
+      body .container {
+        width: 500px; } }
+    @media (max-width: 767px) {
+      body .container {
+        width: calc(100% - 2em); } }
+  body .page {
+    height: 100%; }
+
+body {
+  font-family: 'Roboto Condensed', sans-serif; }
+  body * {
+    font-size: 1rem;
+    line-height: 1.5em; }
+    @media (max-width: 767px) {
+      body * {
+        font-size: 0.88rem; } }
+  body h1, body h2, body h3, body h4 {
+    font-family: 'Lora', serif; }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-weight: 700;
+    line-height: 1em;
+    margin-bottom: 0.4em; }
+  body h1 {
+    font-size: 4rem; }
+    @media (max-width: 767px) {
+      body h1 {
+        font-size: 3rem; } }
+  body h2 {
+    font-size: 3rem; }
+    @media (max-width: 767px) {
+      body h2 {
+        font-size: 2rem; } }
+  body h3 {
+    font-size: 2rem; }
+    @media (max-width: 767px) {
+      body h3 {
+        font-size: 1.5rem; } }
+  body h4 {
+    font-size: 1.5rem; }
+    @media (max-width: 767px) {
+      body h4 {
+        font-size: 1rem; } }
+  body h5 {
+    font-size: 1rem; }
+    @media (max-width: 767px) {
+      body h5 {
+        font-size: 0.88rem; } }
+  body h6 {
+    font-size: 1rem; }
+    @media (max-width: 767px) {
+      body h6 {
+        font-size: 0.88rem; } }
+  body strong {
+    font-weight: 700; }
+
+nav {
+  position: fixed;
+  height: 3em;
+  width: 100%;
+  background-color: #fff;
+  z-index: 50;
+  top: 0px;
+  left: 0px; }
+
+body:before {
+  position: fixed;
+  top: 6rem;
+  right: -9rem;
+  font-weight: bold;
+  pointer-events: none;
+  display: block;
+  content: 'THIS SITE IS UNDER CONSTRUCTION';
+  z-index: 999;
+  transform: rotate(45deg);
+  padding: 1rem 10rem;
+  background-color: #ffe000;
+  border: 0.2rem solid #000;
+  box-shadow: -0.5rem 0.5rem 2rem 0px rgba(0, 0, 0, 0.5);
+  background-image: repeating-linear-gradient(45deg, #ffe000, #ffe000 10px, #f9d10b 10px, #f9d10b 20px); }
+  @media (max-width: 767px) {
+    body:before {
+      padding: 1rem 9rem; } }
+
+.page > section.full-height-banner {
+  position: relative;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .page > section.full-height-banner, .page > section.full-height-banner a {
+    color: #fff; }
+  .page > section.full-height-banner .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+
+footer {
+  height: 32rem; }

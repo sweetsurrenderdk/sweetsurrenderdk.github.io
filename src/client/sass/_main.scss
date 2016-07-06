@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-top: 3em;
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 960px;
+
+        @media($md) {
+            width: 700px;
+        }
+
+        @media($sm) {
+            width: 500px;
+        }
+
+        @media($xs) {
+            width: calc(100% - 2em);
+        }
+    }
+    
+    .page {
+        height: 100%;        
+    }
+}
