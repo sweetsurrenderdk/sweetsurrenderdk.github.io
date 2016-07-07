@@ -237,6 +237,10 @@ nav {
             margin-left: auto;
             text-align: center;
             flex-direction: column; } }
+        @media (max-width: 767px) {
+          nav .container .pages-container .pages a {
+            font-family: 'Gochi Hand', sans-serif;
+            font-size: 2rem; } }
     nav .container .nav-brand, nav .container .pages a {
       display: block;
       text-decoration: none;
@@ -353,8 +357,6 @@ nav {
       padding: 2rem; }
       .calendar-container .calendar-events .calendar-event .calendar-event-body .description {
         margin-bottom: 2rem; }
-      .calendar-container .calendar-events .calendar-event .calendar-event-body .hours {
-        line-height: 2rem; }
       .calendar-container .calendar-events .calendar-event .calendar-event-body .fb-link {
         background-color: #3c5a99;
         line-height: 2rem;
