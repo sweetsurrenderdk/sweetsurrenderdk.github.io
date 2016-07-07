@@ -8,15 +8,66 @@ nav {
     left: 0px;
     box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5);
 
+    @media($sm) {
+        height: 4rem;
+    }   
+    
+    @media($xs) {
+        height: 3rem;
+    }   
+
     .container {
         height: 100%;
         display: flex;
 
-        >a {
+        .pages-container {
+            height: 100%;
+            position: relative;
+
+            @media($xs) {
+                top: 3rem;
+                height: calc(100% - 3rem);
+                width: 100%;
+                position: fixed;
+                right: 0rem;
+                transform: translateX(100%);
+                z-index: 40;
+                overflow-x: hidden;
+                transition: transform 0.5s ease;
+                background-color: $darkest-grey;
+                color: $white;
+                max-width: 20rem;
+            }
+            
+            .pages {
+                display: flex;
+
+                @media($xs) {
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    transform: translateY(-50%);
+                    margin-left: auto;
+                    text-align: center;
+                    flex-direction: column;
+
+                } 
+            }
+        }
+
+        .nav-brand, .pages a {
             display: block;
             text-decoration: none;
             height: 100%;
             line-height: 5rem;
+            
+            @media($sm) {
+                line-height: 4rem;
+            }   
+            
+            @media($xs) {
+                line-height: 3rem;
+            }   
 
             &.nav-brand {
                 flex-grow: 1;
@@ -24,6 +75,14 @@ nav {
                 img {
                     margin-top: 0.5rem;
                     height: 4rem;
+                    
+                    @media($sm) {
+                        height: 3rem;
+                    }   
+                    
+                    @media($xs) {
+                        height: 2rem;
+                    }   
                 }
             }
         }
@@ -31,44 +90,6 @@ nav {
         .widgets {
             flex-grow: 1;
             height: 100%;
-
-            .calendar-container {
-                position: fixed;
-                top: 5rem;
-                right: 0rem;
-                height: calc(100% - 5rem);
-                z-index: 50;
-
-                .calendar-events {
-                    float: right;
-                    height: 100%;
-                    width: 0rem;
-                    background-color: black;
-                    transition: width 0.5s ease;
-                    overflow-y: auto;
-                    overflow-x: hidden;
-                }
-
-                .backdrop {
-                    display: none;
-                    position: fixed;
-                    left: 0px;
-                    width: 100%;
-                    height: 100%;
-                    z-index: -1;
-                    opacity: 0;
-                }
-
-                &.active {
-                    .calendar-events {
-                        width: 30rem;
-                    }
-
-                    .backdrop {
-                        display: block;
-                    }
-                }
-            }
 
             .widgets-position-wrapper {
                 float: right;
@@ -82,12 +103,41 @@ nav {
                     width: 3rem;
                     position: relative;
                     
+                    @media($sm) {
+                        margin-top: 0.5rem;
+                    }   
+                    
+                    @media($xs) {
+                        height: 2rem;
+                        width: 2rem;
+                    }
+
                     .fa, img {
                         height: 3rem;
                         width: 3rem;
                         display: block;
                         line-height: 3rem;
                         font-size: 1.5rem;
+                        
+                        @media($xs) {
+                            line-height: 2rem;
+                            height: 2rem;
+                            width: 2rem;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                .btn-toggle-menu, .btn-toggle-calendar {
+                    border-radius: 50%;
+                    background-color: $pink;
+                }
+
+                .btn-toggle-menu {
+                    display: none;
+
+                    @media($xs) {
+                        display: block;
                     }
                 }
 
@@ -108,7 +158,141 @@ nav {
                         height: 1.2rem;
                     }
                 }
+
+                .btn-toggle-menu {
+                    margin-left: 1rem;
+                }
             }
         }
     }
 }
+
+.calendar-container {
+    position: fixed;
+    top: 5rem;
+    right: 0rem;
+    transform: translateX(100%);
+    height: calc(100% - 5rem);
+    z-index: 40;
+    overflow-x: hidden;
+    width: 30rem;
+    transition: transform 0.5s ease;
+
+    @media($sm) {
+        top: 4rem;
+        height: calc(100% - 4rem);
+    }
+
+    @media($xs) {
+        top: 3rem;
+        height: calc(100% - 3rem);
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    .calendar-events {
+        position: absolute;
+        right: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: $darkest-grey;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5);
+
+        .calendar-event {
+            .calendar-event-header {
+                position: relative;
+                color: $darkest-grey;
+                padding: 2rem;
+                background-color: $white;
+
+                .cover {
+                    opacity: 0.5;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                .name {
+                    margin: 0px;
+                }
+
+                .name, .date {
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+
+            .calendar-event-body {
+                position: relative;
+                color: $white;
+                padding: 2rem;
+
+                .description {
+                    margin-bottom: 2rem;
+                }
+
+                .hours {
+                    line-height: 2rem;
+                }
+
+                .fb-link {
+                    background-color: #3c5a99;
+                    line-height: 2rem;
+                    display: block;
+                    padding: 0rem 0.5rem;
+                    position: absolute;
+                    bottom: 2rem;
+                    right: 2rem;
+                    text-decoration: none;
+
+                    .fa {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.backdrop {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+}
+
+body[data-active-widget="calendar"] {
+    .backdrop {
+        display: block;
+    }
+    
+    .calendar-container {
+        overflow-x: visible;
+        transform: translateX(0%);
+    }
+}
+
+body[data-active-widget="menu"] {
+    .backdrop {
+        display: block;
+    }
+    
+    .pages-container {
+        overflow-x: visible;
+        transform: translateX(0%);
+
+    }
+}
+

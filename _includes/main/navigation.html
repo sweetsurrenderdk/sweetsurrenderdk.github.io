@@ -3,27 +3,47 @@
         <a class="nav-brand" href="/">
             <img src="/public/img/logo.png" alt="Sweet Surrender logo" />
         </a>
-        
-        {% for p in site.pages %}
-            {% if p.showInNav %}
-                <a href="{{ p.url }}">{{ p.title }}</a>
-            {% endif %}
-        {% endfor %} 
+       
+        <div class="pages-container">
+            <div class="pages">
+                {% for p in site.pages %}
+                    {% if p.showInNav %}
+                        <a href="{{ p.url }}">{{ p.title }}</a>
+                    {% endif %}
+                {% endfor %} 
+            </div>
+        </div>
 
         <div class="widgets">
             <div class="widgets-position-wrapper">
                 <a href="/about-us/#become-a-volunteer">
                     <img src="/public/img/icon-volunteer.png" alt="Volunteer button" />
                 </a>
-                <button class="btn-toggle-calendar" onclick="document.querySelector('.calendar-container').classList.toggle('active');">
+                <button class="btn-toggle-calendar" onclick="toggleWidget('calendar')">
                     <span class="fa fa-calendar"></span>
-                    <div class="icon-calendar-new-events">42</div>
+                    <div class="icon-calendar-new-events"></div>
                 </button>
-            </div>
-            <div class="calendar-container">
-                <div class="calendar-events"></div> 
-                <button class="backdrop" onclick="document.querySelector('.calendar-container').classList.toggle('active', false);"></button>
+                <button class="btn-toggle-menu" onclick="toggleWidget('menu');">
+                    <span class="fa fa-bars"></span>
+                </button>
             </div>
         </div>
     </div>
 </nav>
+<div class="calendar-container">
+    <div class="calendar-events">
+        <div class="calendar-event" data-id="">
+            <div class="calendar-event-header">
+                <div class="cover"></div>
+                <p class="date">2016.01.01</p>
+                <h4 class="name">Event name</h4>
+            </div>
+            <div class="calendar-event-body">
+                <p class="description">Description</p>
+                <a target="_blank" href="https://www.facebook.com/events/" class="fb-link"><span class="fa fa-facebook-square"></span>View event</a>
+                <p class="hours">12:00 - 14:00</p>
+            </div>
+        </div>
+    </div> 
+</div>
+<button class="backdrop" onclick="closeWidgets();"></button>

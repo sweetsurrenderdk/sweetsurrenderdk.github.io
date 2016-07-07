@@ -14,11 +14,11 @@ body {
         width: 960px;
 
         @media($md) {
-            width: 700px;
+            width: 960px;
         }
 
         @media($sm) {
-            width: 500px;
+            width: 600px;
         }
 
         @media($xs) {

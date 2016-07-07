@@ -88,8 +88,7 @@ button, button:hover, button:focus, button:active {
   outline: 0; }
 
 a, a:hover, a:focus, a:active {
-  color: inherit;
-  text-decoration: none; }
+  color: inherit; }
 
 * {
   box-sizing: border-box; }
@@ -108,10 +107,10 @@ body {
     width: 960px; }
     @media (max-width: 1199px) {
       body .container {
-        width: 700px; } }
+        width: 960px; } }
     @media (max-width: 991px) {
       body .container {
-        width: 500px; } }
+        width: 600px; } }
     @media (max-width: 767px) {
       body .container {
         width: calc(100% - 2em); } }
@@ -148,7 +147,7 @@ body {
 body {
   font-family: 'Ubuntu', sans-serif; }
   body * {
-    font-size: 1rem;
+    font-size: 0.88rem;
     line-height: 1.5em; }
     @media (max-width: 767px) {
       body * {
@@ -201,48 +200,68 @@ nav {
   top: 0px;
   left: 0px;
   box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5); }
+  @media (max-width: 991px) {
+    nav {
+      height: 4rem; } }
+  @media (max-width: 767px) {
+    nav {
+      height: 3rem; } }
   nav .container {
     height: 100%;
     display: flex; }
-    nav .container > a {
+    nav .container .pages-container {
+      height: 100%;
+      position: relative; }
+      @media (max-width: 767px) {
+        nav .container .pages-container {
+          top: 3rem;
+          height: calc(100% - 3rem);
+          width: 100%;
+          position: fixed;
+          right: 0rem;
+          transform: translateX(100%);
+          z-index: 40;
+          overflow-x: hidden;
+          transition: transform 0.5s ease;
+          background-color: #1a1a1a;
+          color: #fff;
+          max-width: 20rem; } }
+      nav .container .pages-container .pages {
+        display: flex; }
+        @media (max-width: 767px) {
+          nav .container .pages-container .pages {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            margin-left: auto;
+            text-align: center;
+            flex-direction: column; } }
+    nav .container .nav-brand, nav .container .pages a {
       display: block;
       text-decoration: none;
       height: 100%;
       line-height: 5rem; }
-      nav .container > a.nav-brand {
+      @media (max-width: 991px) {
+        nav .container .nav-brand, nav .container .pages a {
+          line-height: 4rem; } }
+      @media (max-width: 767px) {
+        nav .container .nav-brand, nav .container .pages a {
+          line-height: 3rem; } }
+      nav .container .nav-brand.nav-brand, nav .container .pages a.nav-brand {
         flex-grow: 1; }
-        nav .container > a.nav-brand img {
+        nav .container .nav-brand.nav-brand img, nav .container .pages a.nav-brand img {
           margin-top: 0.5rem;
           height: 4rem; }
+          @media (max-width: 991px) {
+            nav .container .nav-brand.nav-brand img, nav .container .pages a.nav-brand img {
+              height: 3rem; } }
+          @media (max-width: 767px) {
+            nav .container .nav-brand.nav-brand img, nav .container .pages a.nav-brand img {
+              height: 2rem; } }
     nav .container .widgets {
       flex-grow: 1;
       height: 100%; }
-      nav .container .widgets .calendar-container {
-        position: fixed;
-        top: 5rem;
-        right: 0rem;
-        height: calc(100% - 5rem);
-        z-index: 50; }
-        nav .container .widgets .calendar-container .calendar-events {
-          float: right;
-          height: 100%;
-          width: 0rem;
-          background-color: black;
-          transition: width 0.5s ease;
-          overflow-y: auto;
-          overflow-x: hidden; }
-        nav .container .widgets .calendar-container .backdrop {
-          display: none;
-          position: fixed;
-          left: 0px;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          opacity: 0; }
-        nav .container .widgets .calendar-container.active .calendar-events {
-          width: 30rem; }
-        nav .container .widgets .calendar-container.active .backdrop {
-          display: block; }
       nav .container .widgets .widgets-position-wrapper {
         float: right;
         display: flex;
@@ -253,12 +272,33 @@ nav {
           height: 3rem;
           width: 3rem;
           position: relative; }
+          @media (max-width: 991px) {
+            nav .container .widgets .widgets-position-wrapper a, nav .container .widgets .widgets-position-wrapper button {
+              margin-top: 0.5rem; } }
+          @media (max-width: 767px) {
+            nav .container .widgets .widgets-position-wrapper a, nav .container .widgets .widgets-position-wrapper button {
+              height: 2rem;
+              width: 2rem; } }
           nav .container .widgets .widgets-position-wrapper a .fa, nav .container .widgets .widgets-position-wrapper a img, nav .container .widgets .widgets-position-wrapper button .fa, nav .container .widgets .widgets-position-wrapper button img {
             height: 3rem;
             width: 3rem;
             display: block;
             line-height: 3rem;
             font-size: 1.5rem; }
+            @media (max-width: 767px) {
+              nav .container .widgets .widgets-position-wrapper a .fa, nav .container .widgets .widgets-position-wrapper a img, nav .container .widgets .widgets-position-wrapper button .fa, nav .container .widgets .widgets-position-wrapper button img {
+                line-height: 2rem;
+                height: 2rem;
+                width: 2rem;
+                font-size: 1rem; } }
+        nav .container .widgets .widgets-position-wrapper .btn-toggle-menu, nav .container .widgets .widgets-position-wrapper .btn-toggle-calendar {
+          border-radius: 50%;
+          background-color: #fde9f1; }
+        nav .container .widgets .widgets-position-wrapper .btn-toggle-menu {
+          display: none; }
+          @media (max-width: 767px) {
+            nav .container .widgets .widgets-position-wrapper .btn-toggle-menu {
+              display: block; } }
         nav .container .widgets .widgets-position-wrapper .btn-toggle-calendar {
           position: relative;
           margin-left: 1rem; }
@@ -273,6 +313,101 @@ nav {
             padding: 0.2rem;
             width: 1.2rem;
             height: 1.2rem; }
+        nav .container .widgets .widgets-position-wrapper .btn-toggle-menu {
+          margin-left: 1rem; }
+
+.calendar-container {
+  position: fixed;
+  top: 5rem;
+  right: 0rem;
+  transform: translateX(100%);
+  height: calc(100% - 5rem);
+  z-index: 40;
+  overflow-x: hidden;
+  width: 30rem;
+  transition: transform 0.5s ease; }
+  @media (max-width: 991px) {
+    .calendar-container {
+      top: 4rem;
+      height: calc(100% - 4rem); } }
+  @media (max-width: 767px) {
+    .calendar-container {
+      top: 3rem;
+      height: calc(100% - 3rem);
+      width: 100%;
+      max-width: 30rem; } }
+  .calendar-container .calendar-events {
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5); }
+    .calendar-container .calendar-events .calendar-event .calendar-event-header {
+      position: relative;
+      color: #1a1a1a;
+      padding: 2rem;
+      background-color: #fff; }
+      .calendar-container .calendar-events .calendar-event .calendar-event-header .cover {
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; }
+      .calendar-container .calendar-events .calendar-event .calendar-event-header .name {
+        margin: 0px; }
+      .calendar-container .calendar-events .calendar-event .calendar-event-header .name, .calendar-container .calendar-events .calendar-event .calendar-event-header .date {
+        position: relative;
+        z-index: 2; }
+    .calendar-container .calendar-events .calendar-event .calendar-event-body {
+      position: relative;
+      color: #fff;
+      padding: 2rem; }
+      .calendar-container .calendar-events .calendar-event .calendar-event-body .description {
+        margin-bottom: 2rem; }
+      .calendar-container .calendar-events .calendar-event .calendar-event-body .hours {
+        line-height: 2rem; }
+      .calendar-container .calendar-events .calendar-event .calendar-event-body .fb-link {
+        background-color: #3c5a99;
+        line-height: 2rem;
+        display: block;
+        padding: 0rem 0.5rem;
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        text-decoration: none; }
+        .calendar-container .calendar-events .calendar-event .calendar-event-body .fb-link .fa {
+          margin-right: 0.5rem; }
+
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0; }
+
+body[data-active-widget="calendar"] .backdrop {
+  display: block; }
+
+body[data-active-widget="calendar"] .calendar-container {
+  overflow-x: visible;
+  transform: translateX(0%); }
+
+body[data-active-widget="menu"] .backdrop {
+  display: block; }
+
+body[data-active-widget="menu"] .pages-container {
+  overflow-x: visible;
+  transform: translateX(0%); }
 
 body:before {
   opacity: 0.5;
@@ -288,7 +423,6 @@ body:before {
   padding: 1rem 10rem;
   background-color: #ffe000;
   border: 0.2rem solid #000;
-  box-shadow: -0.5rem 0.5rem 2rem 0px rgba(0, 0, 0, 0.5);
   background-image: repeating-linear-gradient(45deg, #ffe000, #ffe000 10px, #f9d10b 10px, #f9d10b 20px); }
   @media (max-width: 767px) {
     body:before {
