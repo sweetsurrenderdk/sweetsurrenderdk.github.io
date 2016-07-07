@@ -6,10 +6,23 @@ footer {
 
         .container {
             display: flex;
-          
+         
+            @media($xs) {
+                flex-direction: column;
+            }
+
             .text, .map {
                 width: 50%;
                 padding: 2rem;
+
+                a {
+                    text-decoration: none;
+                }
+
+                @media($xs) {
+                    width: 100%;
+                    padding: 1rem;
+                }
             }
 
             .fa {
@@ -25,9 +38,20 @@ footer {
                     &:last-child {
                         margin-bottom: 0rem;
                     }
+                    
+                    @media($xs) {
+                        margin-left: auto;
+                        margin-right: auto;
+                        max-width: 20rem;
+                    }
 
                     >table {
                         width: 15rem;
+
+                        @media($xs) {
+                            width: 100%;
+                            max-width: 15rem;
+                        }
 
                         tr {
                             td {
@@ -88,6 +112,11 @@ footer {
                     background-color: $white;
                     margin-left: auto;
                     display: block;
+
+                    @media($sm) {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
         }
