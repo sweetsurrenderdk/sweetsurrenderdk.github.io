@@ -3,5 +3,9 @@
         {% if include.section.text %}
             {{ include.section.text | markdownify }}
         {% endif %}
+
+        {% if include.section.button.text %}
+            <a class="btn" href="{{ include.section.button.href }}" target="{{ include.section.button.target }}">{{ include.section.button.text }}</a>
+        {% endif %}
     </div>
 </section>

@@ -4,13 +4,10 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    color: $white;
 
     h1 {
         text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5);
-    }
-
-    &, a {
-        color: $white;
     }
 
     .container {

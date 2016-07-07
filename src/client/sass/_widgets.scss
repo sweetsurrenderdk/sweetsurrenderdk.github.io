@@ -1,2 +1,12 @@
 .btn {
+    padding: 1rem 2rem;
+    box-shadow: 0.1em 0em 0.1em rgba(0, 0, 0, 0.5);
+    background-color: $white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &, &:hover, &:focus {
+        color: $darkest-grey;
+    }
 }

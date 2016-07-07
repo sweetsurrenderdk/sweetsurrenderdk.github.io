@@ -355,6 +355,9 @@ nav {
       position: relative;
       color: #fff;
       padding: 2rem; }
+      .calendar-container .calendar-events .calendar-event .calendar-event-body .name {
+        margin-bottom: 1rem;
+        font-weight: bold; }
       .calendar-container .calendar-events .calendar-event .calendar-event-body .description {
         margin-bottom: 2rem; }
       .calendar-container .calendar-events .calendar-event .calendar-event-body .fb-link {
@@ -417,16 +420,25 @@ body:before {
   height: 100%;
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  color: #fff; }
   .page > section.full-height-banner h1 {
     text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5); }
-  .page > section.full-height-banner, .page > section.full-height-banner a {
-    color: #fff; }
   .page > section.full-height-banner .container {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
+
+.btn {
+  padding: 1rem 2rem;
+  box-shadow: 0.1em 0em 0.1em rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase; }
+  .btn, .btn:hover, .btn:focus {
+    color: #1a1a1a; }
 
 footer .info {
   padding: 2rem 0rem;

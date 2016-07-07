@@ -218,6 +218,11 @@ nav {
                 color: $white;
                 padding: 2rem;
 
+                .name {
+                    margin-bottom: 1rem;
+                    font-weight: bold;
+                }
+
                 .description {
                     margin-bottom: 2rem;
                 }
