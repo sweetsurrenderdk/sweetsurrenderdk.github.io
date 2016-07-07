@@ -218,7 +218,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             eventElement.dataset.id = evt.id;
 
                             if (evt.cover) {
-                                eventElement.querySelector('.cover').style.backgroundImage = 'url(\'' + evt.cover.source + '\')';
+                                console.log(evt.cover);
+                                eventElement.querySelector('.cover').setAttribute('src', evt.cover.source);
                             }
 
                             description = autoLinker.link(description);
