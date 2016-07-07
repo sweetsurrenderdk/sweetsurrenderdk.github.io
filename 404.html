@@ -1,6 +1,26 @@
 ---
 permalink: "/404.html"
+layout: compress
 ---
 
-<h1>Uh oh, spaghettios!</h1>
-<p>Page not found</p>
+<!DOCTYPE html>
+<html>
+    {% include main/head.html %}
+
+    <body>
+        {% include main/navigation.html %}
+
+        <div class="page">
+            <section class="404 full-height-banner">
+                <div class="container">
+                    <h1>Whoops!<h1>
+                    <p>This page does not exist</p>
+                </div>
+            </section>
+            
+            {% include main/footer.html %}
+        </div>
+
+        {% include main/scripts.html %}
+    </body>
+</html>
