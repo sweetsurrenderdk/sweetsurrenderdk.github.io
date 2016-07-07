@@ -416,6 +416,8 @@ body:before {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; }
+  .page > section.full-height-banner h1 {
+    text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5); }
   .page > section.full-height-banner, .page > section.full-height-banner a {
     color: #fff; }
   .page > section.full-height-banner .container {
