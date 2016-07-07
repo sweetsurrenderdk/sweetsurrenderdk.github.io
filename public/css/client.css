@@ -320,20 +320,23 @@ footer .info {
     footer .info .container .fa {
       color: #666; }
     footer .info .container .text > p, footer .info .container .text > div {
-      text-align: right;
-      margin-bottom: 1rem; }
+      padding-left: 3rem;
+      margin-bottom: 1rem;
+      position: relative; }
       footer .info .container .text > p:last-child, footer .info .container .text > div:last-child {
         margin-bottom: 0rem; }
       footer .info .container .text > p > table, footer .info .container .text > div > table {
-        margin-left: auto;
         width: 15rem; }
         footer .info .container .text > p > table tr td:first-child, footer .info .container .text > div > table tr td:first-child {
           text-align: left; }
       footer .info .container .text > p > .fa, footer .info .container .text > div > .fa {
-        float: left;
-        display: block; }
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 1.5rem; }
       footer .info .container .text > p.social-links a, footer .info .container .text > div.social-links a {
-        margin-left: 1rem; }
+        margin-right: 1rem; }
         footer .info .container .text > p.social-links a .fa, footer .info .container .text > div.social-links a .fa {
           font-size: 2rem;
           width: 2rem;
@@ -342,9 +345,13 @@ footer .info {
           text-align: center;
           border-radius: 0.4rem; }
           footer .info .container .text > p.social-links a .fa.fa-facebook-square, footer .info .container .text > div.social-links a .fa.fa-facebook-square {
-            color: #3c5a99; }
+            background-color: #3c5a99;
+            font-size: 1.5rem;
+            color: #fff; }
           footer .info .container .text > p.social-links a .fa.fa-twitter-square, footer .info .container .text > div.social-links a .fa.fa-twitter-square {
-            color: #55acee; }
+            background-color: #55acee;
+            font-size: 1.5rem;
+            color: #fff; }
           footer .info .container .text > p.social-links a .fa.fa-instagram, footer .info .container .text > div.social-links a .fa.fa-instagram {
             background-image: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
             color: #fff;
@@ -352,7 +359,9 @@ footer .info {
     footer .info .container .map iframe {
       width: 18rem;
       height: 18rem;
-      background-color: #fff; }
+      background-color: #fff;
+      margin-left: auto;
+      display: block; }
 
 footer .copyright {
   text-align: center;
