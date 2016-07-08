@@ -1,21 +1,117 @@
 body {
-    .page.menu-page {
-        height: 100%;
+    &[data-active-widget="menu-nav"] {
+        .page.menu-page {
+            .menu-nav {
+                @media($xs) {
+                    right: 0rem;
+                }
+            }
+        }
 
-        .menu-items {
-            height: 100%;
-            display: flex;
+        .backdrop {
+            display: block;
+        }
+    }
+    
+    .page.menu-page {
+        height: auto;
+        display: flex;
+        background-color: $darkest-grey;
+
+        .menu-nav {
+            width: 20rem;
+            flex-shrink: 0;
+            position: relative;
+            background-color: $darkest-grey;
+
+            @media($xs) {
+                transition: right 0.5s ease;
+                position: fixed;
+                top: 3rem;
+                right: -20rem;
+                z-index: 50;
+                box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5);
+                overflow-y: auto;
+                height: calc(100% - 3rem);
+            }
+
+            .menu-nav-toggle {
+                position: fixed; 
+                right: 0px;
+                bottom: 0px;
+                width: 3rem;
+                text-align: center;
+                line-height: 3rem;
+                display: none;
+                z-index: 50;
+                background-color: $pink;
+                color: $darkest-grey;
+
+                @media($xs) {
+                    display: block;
+                }
+            }
+
+            .menu-item {
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: 1rem 1rem;
+                color: $white;
+
+                &:hover {
+                    background-color: $darker-grey;
+                }
+
+                .price {
+                    float: right;
+                }
+            }
+        }
+
+        .menu-gallery {
+            border: 1px solid transparent;
+            flex-grow: 1;
+
+            .grid-sizer {
+                width: 25%;
+                
+                @media($sm) {
+                    width: 50%;
+                }   
+            }
 
             .menu-item {
                 position: relative;
                 overflow: hidden;
+                border: 1px solid transparent;
+                display: block;
+                text-decoration: none;
+                
+                &:after {
+                    content: '';
+                    display: block;
+                    padding-top: 100%;
+                }
+
+                &:focus {
+                    border-color: $white;
+
+                    .info {
+                        .details {
+                            height: 6rem;
+                            opacity: 1;
+                        }
+                    }
+                }
 
                 .image {
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    width: 100%;
+                    min-width: 100%;
+                    min-height: 100%;
                 }
                
                 .info {
@@ -26,25 +122,64 @@ body {
                     left: 0px;
                     width: 100%;
                     z-index: 10;
-                    padding: 2rem;
+                    padding: 1em;
 
-                    .price {
-                        float: right;
-                    }   
+                    .title {
+                        font-family: 'Gochi Hand';
+                        font-size: 2em;
+                        line-height: 1em;
+                        
+                        @media($xs) {
+                            font-size: 1.2em;
+                        }
+                    }
+
+                    .details {
+                        height: 0px;
+                        overflow-y: hidden;
+                        opacity: 0;
+                        transition: opacity 0.5s ease, height 0.5s ease;
+                        position: relative;
+
+                        .description {
+                            position: absolute;
+                            top: 1em;
+                            left: 0px;
+                            width: calc(100%);
+                        }
+                        
+                        .price {
+                            position: absolute;
+                            bottom: 0px;
+                            right: 0px;
+                            font-family: 'Gochi Hand';
+                            font-size: 2em;
+
+                            @media($xs) {
+                                font-size: 1.2em;
+                            }
+                        }   
+                    }
                 }
 
                 &[data-size="0"] {
-                    flex-basis: 100%;
+                    width: 100%;
                 }
                 
                 &[data-size="1"] {
-                    height: 50%;
-                    flex-basis: 50%;
+                    width: 25%;
+
+                    @media($sm) {
+                        width: 50%;
+                    }
                 }
                 
                 &[data-size="2"] {
-                    flex-basis: 100%;
-                    height: 100%;
+                    width: 50%;
+                    
+                    @media($sm) {
+                        width: 100%;
+                    }
                 }
             }
         }

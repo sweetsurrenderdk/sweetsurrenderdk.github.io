@@ -244,10 +244,12 @@ nav {
             margin-left: auto;
             text-align: center;
             flex-direction: column; } }
-        @media (max-width: 767px) {
-          nav .container .pages-container .pages a {
-            font-family: 'Gochi Hand', sans-serif;
-            font-size: 2rem; } }
+        nav .container .pages-container .pages a {
+          padding: 0em 1em; }
+          @media (max-width: 767px) {
+            nav .container .pages-container .pages a {
+              font-family: 'Gochi Hand', sans-serif;
+              font-size: 2rem; } }
     nav .container .nav-brand, nav .container .pages a {
       display: block;
       text-decoration: none;
@@ -561,21 +563,87 @@ footer .copyright {
   footer .copyright p, footer .copyright a {
     font-size: 0.8rem; }
 
+@media (max-width: 767px) {
+  body[data-active-widget="menu-nav"] .page.menu-page .menu-nav {
+    right: 0rem; } }
+
+body[data-active-widget="menu-nav"] .backdrop {
+  display: block; }
+
 body .page.menu-page {
-  height: 100%; }
-  body .page.menu-page .menu-items {
-    height: 100%;
-    display: flex; }
-    body .page.menu-page .menu-items .menu-item {
+  height: auto;
+  display: flex;
+  background-color: #1a1a1a; }
+  body .page.menu-page .menu-nav {
+    width: 20rem;
+    flex-shrink: 0;
+    position: relative;
+    background-color: #1a1a1a; }
+    @media (max-width: 767px) {
+      body .page.menu-page .menu-nav {
+        transition: right 0.5s ease;
+        position: fixed;
+        top: 3rem;
+        right: -20rem;
+        z-index: 50;
+        box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        height: calc(100% - 3rem); } }
+    body .page.menu-page .menu-nav .menu-nav-toggle {
+      position: fixed;
+      right: 0px;
+      bottom: 0px;
+      width: 3rem;
+      text-align: center;
+      line-height: 3rem;
+      display: none;
+      z-index: 50;
+      background-color: #fde9f1;
+      color: #1a1a1a; }
+      @media (max-width: 767px) {
+        body .page.menu-page .menu-nav .menu-nav-toggle {
+          display: block; } }
+    body .page.menu-page .menu-nav .menu-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 1rem 1rem;
+      color: #fff; }
+      body .page.menu-page .menu-nav .menu-item:hover {
+        background-color: #333; }
+      body .page.menu-page .menu-nav .menu-item .price {
+        float: right; }
+  body .page.menu-page .menu-gallery {
+    border: 1px solid transparent;
+    flex-grow: 1; }
+    body .page.menu-page .menu-gallery .grid-sizer {
+      width: 25%; }
+      @media (max-width: 991px) {
+        body .page.menu-page .menu-gallery .grid-sizer {
+          width: 50%; } }
+    body .page.menu-page .menu-gallery .menu-item {
       position: relative;
-      overflow: hidden; }
-      body .page.menu-page .menu-items .menu-item .image {
+      overflow: hidden;
+      border: 1px solid transparent;
+      display: block;
+      text-decoration: none; }
+      body .page.menu-page .menu-gallery .menu-item:after {
+        content: '';
+        display: block;
+        padding-top: 100%; }
+      body .page.menu-page .menu-gallery .menu-item:focus {
+        border-color: #fff; }
+        body .page.menu-page .menu-gallery .menu-item:focus .info .details {
+          height: 6rem;
+          opacity: 1; }
+      body .page.menu-page .menu-gallery .menu-item .image {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 100%; }
-      body .page.menu-page .menu-items .menu-item .info {
+        min-width: 100%;
+        min-height: 100%; }
+      body .page.menu-page .menu-gallery .menu-item .info {
         background-color: rgba(0, 0, 0, 0.5);
         color: #fff;
         position: absolute;
@@ -583,17 +651,46 @@ body .page.menu-page {
         left: 0px;
         width: 100%;
         z-index: 10;
-        padding: 2rem; }
-        body .page.menu-page .menu-items .menu-item .info .price {
-          float: right; }
-      body .page.menu-page .menu-items .menu-item[data-size="0"] {
-        flex-basis: 100%; }
-      body .page.menu-page .menu-items .menu-item[data-size="1"] {
-        height: 50%;
-        flex-basis: 50%; }
-      body .page.menu-page .menu-items .menu-item[data-size="2"] {
-        flex-basis: 100%;
-        height: 100%; }
+        padding: 1em; }
+        body .page.menu-page .menu-gallery .menu-item .info .title {
+          font-family: 'Gochi Hand';
+          font-size: 2em;
+          line-height: 1em; }
+          @media (max-width: 767px) {
+            body .page.menu-page .menu-gallery .menu-item .info .title {
+              font-size: 1.2em; } }
+        body .page.menu-page .menu-gallery .menu-item .info .details {
+          height: 0px;
+          overflow-y: hidden;
+          opacity: 0;
+          transition: opacity 0.5s ease, height 0.5s ease;
+          position: relative; }
+          body .page.menu-page .menu-gallery .menu-item .info .details .description {
+            position: absolute;
+            top: 1em;
+            left: 0px;
+            width: calc(100%); }
+          body .page.menu-page .menu-gallery .menu-item .info .details .price {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            font-family: 'Gochi Hand';
+            font-size: 2em; }
+            @media (max-width: 767px) {
+              body .page.menu-page .menu-gallery .menu-item .info .details .price {
+                font-size: 1.2em; } }
+      body .page.menu-page .menu-gallery .menu-item[data-size="0"] {
+        width: 100%; }
+      body .page.menu-page .menu-gallery .menu-item[data-size="1"] {
+        width: 25%; }
+        @media (max-width: 991px) {
+          body .page.menu-page .menu-gallery .menu-item[data-size="1"] {
+            width: 50%; } }
+      body .page.menu-page .menu-gallery .menu-item[data-size="2"] {
+        width: 50%; }
+        @media (max-width: 991px) {
+          body .page.menu-page .menu-gallery .menu-item[data-size="2"] {
+            width: 100%; } }
 
 .page > section._404 {
   height: 60%;

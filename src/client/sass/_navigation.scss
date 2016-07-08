@@ -53,6 +53,8 @@ nav {
                 }
 
                 a {
+                    padding: 0em 1em;
+
                     @media($xs) {
                         font-family: 'Gochi Hand', sans-serif;
                         font-size: 2rem;

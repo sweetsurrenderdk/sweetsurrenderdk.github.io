@@ -1,4 +1,5 @@
 require('./helpers/DebugHelper');
+require('./helpers/MenuHelper');
 require('./helpers/FacebookHelper');
 
 // Globals
@@ -17,3 +18,4 @@ window.closeWidgets = function closeWidgets() {
 
 // Init
 FacebookHelper.populateCalendar();
+MenuHelper.bindNavItems();

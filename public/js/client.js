@@ -18,6 +18,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }return s;
 })({ 1: [function (require, module, exports) {
         require('./helpers/DebugHelper');
+        require('./helpers/MenuHelper');
         require('./helpers/FacebookHelper');
 
         // Globals
@@ -36,7 +37,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         // Init
         FacebookHelper.populateCalendar();
-    }, { "./helpers/DebugHelper": 2, "./helpers/FacebookHelper": 3 }], 2: [function (require, module, exports) {
+        MenuHelper.bindNavItems();
+    }, { "./helpers/DebugHelper": 2, "./helpers/FacebookHelper": 3, "./helpers/MenuHelper": 4 }], 2: [function (require, module, exports) {
         'use strict';
 
         var lastSenderName = '';
@@ -288,5 +290,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }();
 
         window.FacebookHelper = FacebookHelper;
+    }, {}], 4: [function (require, module, exports) {
+        'use strict';
+
+        var MenuHelper = function () {
+            function MenuHelper() {
+                _classCallCheck(this, MenuHelper);
+            }
+
+            _createClass(MenuHelper, null, [{
+                key: "bindNavItem",
+                value: function bindNavItem(navItem) {
+                    navItem.addEventListener('click', function () {
+                        var galleryItem = document.querySelector('.menu-gallery .menu-item#_' + navItem.dataset.id);
+
+                        galleryItem.focus();
+                        closeWidgets();
+                    });
+                }
+            }, {
+                key: "bindNavItems",
+                value: function bindNavItems() {
+                    var navItems = document.querySelectorAll('.menu-page .menu-nav .menu-item');
+
+                    for (var i = 0; i < navItems.length; i++) {
+                        MenuHelper.bindNavItem(navItems[i]);
+                    }
+                }
+            }]);
+
+            return MenuHelper;
+        }();
+
+        window.MenuHelper = MenuHelper;
     }, {}] }, {}, [1]);
 //# sourceMappingURL=client.js.map

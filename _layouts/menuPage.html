@@ -8,16 +8,29 @@ layout: compress
     
     <body>
         {% include main/navigation.html %}
+        
+        {% include endomon/get_child_content_ids id=page.meta.id %}
+        {% assign menu_item_ids = result %}
    
         <div class="page menu-page">
             <div class="menu-nav">
-            
+                <button class="menu-nav-toggle" onclick="toggleWidget('menu-nav');">
+                    <span class="fa fa-th-list"></span>
+                </button>
+
+                {% for menu_item_id in menu_item_ids %}
+                    {% include endomon/get_content_by_id id=menu_item_id %}
+                    {% assign menu_item = result %}
+                    
+                    <button class="menu-item" data-id="{{ menu_item.meta.id }}">
+                        <p class="price">{{ menu_item.price }} kr.</p>
+                        <p class="title">{{ menu_item.title }}</p>
+                    </button>
+                {% endfor %}
             </div>
 
-            <div class="menu-items">
-                {% include endomon/get_child_content_ids id=page.meta.id %}
-                {% assign menu_item_ids = result %}
-              
+            <div class="menu-gallery grid">
+                <div class="grid-sizer"></div>
                 {% for menu_item_id in menu_item_ids %}
                     {% include endomon/get_content_by_id id=menu_item_id %}
                     {% assign menu_item = result %}
@@ -28,19 +41,27 @@ layout: compress
                         {% assign size = 0 %}
                     {% endif %}
 
-                    <div class="menu-item" data-size="{{ size }}" data-id="{{ menu_item.meta.id }}">
+                    <a href="#" name="{{ menu_item.meta.id }}" onclick="return false;" class="menu-item child-item" data-size="{{ size }}" id="_{{ menu_item.meta.id }}">
                         <img src="{% include endomon/get_media_by_id id=menu_item.image %}" class="image" />
                         <div class="info">
-                            <h4 class="price">{{ menu_item.price }} kr.</h4>
-                            <h4 class="title">{{ menu_item.title }}</h4>
-                            <p class="description">{{ menu_item.description }}</p>
+                            <p class="title">{{ menu_item.title }}</p>
+                            <div class="details">
+                                <p class="price">{{ menu_item.price }} kr.</p>
+                                <p class="description">{{ menu_item.description }}</p>
+                            </div>
                         </div>
-                    </div>
-
+                    </a>
                 {% endfor %}
             </div>
         </div>
         
         {% include main/scripts.html %}
+
+        <script>
+            var grid = document.querySelector('.grid');
+            var masonry = new Masonry(grid, {
+                columnWidth: '.grid-sizer'
+            });
+        </script>
     </body>
 </html>
