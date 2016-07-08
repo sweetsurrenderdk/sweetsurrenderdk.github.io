@@ -1,0 +1,52 @@
+body {
+    .page.menu-page {
+        height: 100%;
+
+        .menu-items {
+            height: 100%;
+            display: flex;
+
+            .menu-item {
+                position: relative;
+                overflow: hidden;
+
+                .image {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                }
+               
+                .info {
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: $white;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    width: 100%;
+                    z-index: 10;
+                    padding: 2rem;
+
+                    .price {
+                        float: right;
+                    }   
+                }
+
+                &[data-size="0"] {
+                    flex-basis: 100%;
+                }
+                
+                &[data-size="1"] {
+                    height: 50%;
+                    flex-basis: 50%;
+                }
+                
+                &[data-size="2"] {
+                    flex-basis: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

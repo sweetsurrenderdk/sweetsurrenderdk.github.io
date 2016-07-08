@@ -10,24 +10,35 @@ layout: compress
         {% include main/navigation.html %}
    
         <div class="page menu-page">
-            {% include endomon/get_child_content_ids id=page.meta.id %}
-            {% assign menu_item_ids = result %}
-          
-            {% for menu_item_id in menu_item_ids %}
-                {% include endomon/get_content_by_id id=menu_item_id %}
-                {% assign menu_item = result %}
+            <div class="menu-nav">
+            
+            </div>
 
-                <div class="menu-item" data-id="{{ menu_item.meta.id }}">
-                    <div class="info">
-                        <h4>{{ menu_item.title }}</h4>
-                        <p>{{ menu_item.description }}</p>
-                        <p>{{ menu_item.price }}</p>
+            <div class="menu-items">
+                {% include endomon/get_child_content_ids id=page.meta.id %}
+                {% assign menu_item_ids = result %}
+              
+                {% for menu_item_id in menu_item_ids %}
+                    {% include endomon/get_content_by_id id=menu_item_id %}
+                    {% assign menu_item = result %}
+
+                    {% if menu_item.size or menu_item.image %}
+                        {% assign size = menu_item.size %}
+                    {% else %}
+                        {% assign size = 0 %}
+                    {% endif %}
+
+                    <div class="menu-item" data-size="{{ size }}" data-id="{{ menu_item.meta.id }}">
+                        <img src="{% include endomon/get_media_by_id id=menu_item.image %}" class="image" />
+                        <div class="info">
+                            <h4 class="price">{{ menu_item.price }} kr.</h4>
+                            <h4 class="title">{{ menu_item.title }}</h4>
+                            <p class="description">{{ menu_item.description }}</p>
+                        </div>
                     </div>
-                </div>
 
-            {% endfor %}
-
-            {% include main/footer.html %}
+                {% endfor %}
+            </div>
         </div>
         
         {% include main/scripts.html %}

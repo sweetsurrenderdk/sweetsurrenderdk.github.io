@@ -561,6 +561,40 @@ footer .copyright {
   footer .copyright p, footer .copyright a {
     font-size: 0.8rem; }
 
+body .page.menu-page {
+  height: 100%; }
+  body .page.menu-page .menu-items {
+    height: 100%;
+    display: flex; }
+    body .page.menu-page .menu-items .menu-item {
+      position: relative;
+      overflow: hidden; }
+      body .page.menu-page .menu-items .menu-item .image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%; }
+      body .page.menu-page .menu-items .menu-item .info {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: 10;
+        padding: 2rem; }
+        body .page.menu-page .menu-items .menu-item .info .price {
+          float: right; }
+      body .page.menu-page .menu-items .menu-item[data-size="0"] {
+        flex-basis: 100%; }
+      body .page.menu-page .menu-items .menu-item[data-size="1"] {
+        height: 50%;
+        flex-basis: 50%; }
+      body .page.menu-page .menu-items .menu-item[data-size="2"] {
+        flex-basis: 100%;
+        height: 100%; }
+
 .page > section._404 {
   height: 60%;
   text-align: center;
