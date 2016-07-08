@@ -3,11 +3,16 @@
 class MenuHelper {
     static bindNavItem(navItem) {
         navItem.addEventListener('click', () => {
-            var galleryItem = document.querySelector('.menu-gallery .menu-item#_' + navItem.dataset.id);
+            MenuHelper.focusItem(navItem.dataset.id);
 
-            galleryItem.focus();
             closeWidgets();
         });
+    }
+
+    static focusItem(id) {
+        let galleryItem = document.querySelector('.menu-gallery .menu-item#_' + id);
+
+        galleryItem.focus();
     }
 
     static bindNavItems() {

@@ -12,7 +12,6 @@ window.toggleWidget = function toggleWidget(name) {
 }
 
 window.closeWidgets = function closeWidgets() {
-    console.log('ddue');
     document.body.dataset.activeWidget = '';
 }
 

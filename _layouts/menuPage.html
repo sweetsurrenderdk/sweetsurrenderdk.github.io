@@ -18,15 +18,17 @@ layout: compress
                     <span class="fa fa-th-list"></span>
                 </button>
 
-                {% for menu_item_id in menu_item_ids %}
-                    {% include endomon/get_content_by_id id=menu_item_id %}
-                    {% assign menu_item = result %}
-                    
-                    <button class="menu-item" data-id="{{ menu_item.meta.id }}">
-                        <p class="price">{{ menu_item.price }} kr.</p>
-                        <p class="title">{{ menu_item.title }}</p>
-                    </button>
-                {% endfor %}
+                <div class="menu-items">
+                    {% for menu_item_id in menu_item_ids %}
+                        {% include endomon/get_content_by_id id=menu_item_id %}
+                        {% assign menu_item = result %}
+                        
+                        <button class="menu-item" data-id="{{ menu_item.meta.id }}">
+                            <p class="price">{{ menu_item.price }} kr.</p>
+                            <p class="title">{{ menu_item.title }}</p>
+                        </button>
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="menu-gallery grid">
@@ -41,7 +43,7 @@ layout: compress
                         {% assign size = 0 %}
                     {% endif %}
 
-                    <a href="#" name="{{ menu_item.meta.id }}" onclick="return false;" class="menu-item child-item" data-size="{{ size }}" id="_{{ menu_item.meta.id }}">
+                    <a href="#" name="{{ menu_item.meta.id }}" onclick="MenuHelper.focusItem('{{ menu_item.meta.id }}'); return false;" class="menu-item child-item" data-size="{{ size }}" id="_{{ menu_item.meta.id }}">
                         <img src="{% include endomon/get_media_by_id id=menu_item.image %}" class="image" />
                         <div class="info">
                             <p class="title">{{ menu_item.title }}</p>

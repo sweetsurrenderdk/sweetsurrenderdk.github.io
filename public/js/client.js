@@ -31,7 +31,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         window.closeWidgets = function closeWidgets() {
-            console.log('ddue');
             document.body.dataset.activeWidget = '';
         };
 
@@ -302,11 +301,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 key: "bindNavItem",
                 value: function bindNavItem(navItem) {
                     navItem.addEventListener('click', function () {
-                        var galleryItem = document.querySelector('.menu-gallery .menu-item#_' + navItem.dataset.id);
+                        MenuHelper.focusItem(navItem.dataset.id);
 
-                        galleryItem.focus();
                         closeWidgets();
                     });
+                }
+            }, {
+                key: "focusItem",
+                value: function focusItem(id) {
+                    var galleryItem = document.querySelector('.menu-gallery .menu-item#_' + id);
+
+                    galleryItem.focus();
                 }
             }, {
                 key: "bindNavItems",

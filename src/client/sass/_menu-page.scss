@@ -2,8 +2,12 @@ body {
     &[data-active-widget="menu-nav"] {
         .page.menu-page {
             .menu-nav {
-                @media($xs) {
+                @media($sm) {
                     right: 0rem;
+                }
+                
+                .menu-nav-toggle {
+                    right: 0px;
                 }
             }
         }
@@ -20,51 +24,66 @@ body {
 
         .menu-nav {
             width: 20rem;
+            top: 5rem;
+            height: calc(100% - 5rem);
             flex-shrink: 0;
-            position: relative;
             background-color: $darkest-grey;
 
-            @media($xs) {
-                transition: right 0.5s ease;
+            @media($sm) {
                 position: fixed;
-                top: 3rem;
-                right: -20rem;
                 z-index: 50;
+                transition: right 0.5s ease;
+                top: 4rem;
+                height: calc(100% - 4rem);
+                right: -20rem;
                 box-shadow: 0rem 0rem 5rem 0rem rgba(0, 0, 0, 0.5);
-                overflow-y: auto;
+            }
+
+            @media($xs) {
+                top: 3rem;
                 height: calc(100% - 3rem);
             }
 
             .menu-nav-toggle {
-                position: fixed; 
-                right: 0px;
+                position: absolute; 
+                right: 100%;
                 bottom: 0px;
                 width: 3rem;
                 text-align: center;
                 line-height: 3rem;
                 display: none;
-                z-index: 50;
+                z-index: 100;
                 background-color: $pink;
                 color: $darkest-grey;
+                transition: right 0.5s ease;
 
-                @media($xs) {
+                @media($sm) {
                     display: block;
                 }
             }
 
-            .menu-item {
-                display: block;
-                width: 100%;
-                text-align: left;
-                padding: 1rem 1rem;
-                color: $white;
+            .menu-items {
+                height: 100%;
+                overflow-y: auto;
 
-                &:hover {
-                    background-color: $darker-grey;
+                @media($xs) {
+                    padding-right: 3rem;
                 }
+                
+                .menu-item {
+                    display: block;
+                    width: 100%;
+                    text-align: left;
+                    padding: 1rem 1rem;
+                    color: $white;
 
-                .price {
-                    float: right;
+                    &:hover {
+                        background-color: $darker-grey;
+                    }
+
+                    .price {
+                        float: right;
+                    }
                 }
             }
         }
