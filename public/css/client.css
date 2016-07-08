@@ -163,7 +163,8 @@ body {
   body h1, body h2, body h3, body h4, body h5, body h6 {
     font-weight: 700;
     line-height: 1em;
-    margin-bottom: 0.4em; }
+    margin-top: 0.6em;
+    margin-bottom: 0.2em; }
   body h1 {
     font-size: 4rem; }
     @media (max-width: 767px) {
@@ -435,6 +436,9 @@ body:before {
   .page > section.full-height-banner .container .btn {
     margin-left: auto;
     margin-right: auto; }
+
+.page > section.rich-text-section {
+  padding: 8em 0em; }
 
 .btn {
   padding: 1rem 0rem;

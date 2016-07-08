@@ -1,0 +1,22 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html>
+    {% include main/head.html %}
+    
+    <body>
+        {% include main/navigation.html %}
+   
+        <div class="page menu-page">
+            {% for menuItem in page.menuItems.items %}     
+                <div class="menu-item" data-id="{{ menuItem.meta.id }}"></div>
+            {% endfor %}
+
+            {% include main/footer.html %}
+        </div>
+        
+        {% include main/scripts.html %}
+    </body>
+</html>
