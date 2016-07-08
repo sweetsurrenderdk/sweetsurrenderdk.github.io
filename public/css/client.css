@@ -422,29 +422,54 @@ body:before {
       padding: 1rem 9rem; } }
 
 .page > section.full-height-banner {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff; }
-  .page > section.full-height-banner h1 {
+  .page > section.full-height-banner .container h1 {
     text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5); }
-  .page > section.full-height-banner .container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); }
+  .page > section.full-height-banner .container .btn {
+    margin-left: auto;
+    margin-right: auto; }
 
 .btn {
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
+  text-align: center;
   box-shadow: 0.1em 0em 0.1em rgba(0, 0, 0, 0.5);
   background-color: #fff;
   text-decoration: none;
   font-weight: bold;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  display: block;
+  width: 10rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; }
+  .btn:before {
+    content: '';
+    position: absolute;
+    background-color: #fde9f1;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    transition: transform 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%; }
+  .btn:hover:before, .btn:focus:before {
+    transform: translate(-50%, -50%) scale(10); }
+  .btn:active {
+    margin-bottom: -0.1rem;
+    box-shadow: 0rem 0rem 0.1rem rgba(0, 0, 0, 0.5); }
   .btn, .btn:hover, .btn:focus {
     color: #1a1a1a; }
+  .btn span {
+    position: relative;
+    z-index: 10; }
 
 footer .info {
   padding: 2rem 0rem;
@@ -531,3 +556,10 @@ footer .copyright {
     margin-bottom: 1rem; }
   footer .copyright p, footer .copyright a {
     font-size: 0.8rem; }
+
+.page > section._404 {
+  height: 60%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; }

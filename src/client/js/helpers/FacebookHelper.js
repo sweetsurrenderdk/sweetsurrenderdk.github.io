@@ -50,7 +50,8 @@ class FacebookHelper {
 
         FacebookHelper.apiCall('events', '&fields=cover,name,start_time,end_time,description')
         .then((response) => {
-            document.querySelector('.icon-calendar-new-events').innerHTML = response.data.length;
+            let upcoming = 0;
+            let thisDate = new Date();
 
             for(let i = 0; i < response.data.length; i++) {
                 let evt = response.data[i];
@@ -60,10 +61,13 @@ class FacebookHelper {
                 let start = new Date(evt.start_time);
                 let end = new Date(evt.end_time);   
 
+                if(start > thisDate) {
+                    upcoming++;
+                }
+
                 eventElement.dataset.id = evt.id;
 
                 if(evt.cover) {
-                    console.log(evt.cover);
                     eventElement.querySelector('.cover').setAttribute('src', evt.cover.source);
                 }
 
@@ -113,6 +117,15 @@ class FacebookHelper {
             }
 
             eventElementTemplate.parentElement.removeChild(eventElementTemplate);
+
+            if(upcoming > 0) {
+                document.querySelector('.icon-calendar-new-events').innerHTML = upcoming.toString();
+            
+            } else {
+                document.querySelector('.icon-calendar-new-events').style.display = 'none';
+            
+            }
+
         })
         .catch((e) => {
             console.log(e);

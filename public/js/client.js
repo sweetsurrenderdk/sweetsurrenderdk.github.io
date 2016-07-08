@@ -205,7 +205,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     var autoLinker = new Autolinker();
 
                     FacebookHelper.apiCall('events', '&fields=cover,name,start_time,end_time,description').then(function (response) {
-                        document.querySelector('.icon-calendar-new-events').innerHTML = response.data.length;
+                        var upcoming = 0;
+                        var thisDate = new Date();
 
                         for (var i = 0; i < response.data.length; i++) {
                             var evt = response.data[i];
@@ -215,10 +216,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             var start = new Date(evt.start_time);
                             var end = new Date(evt.end_time);
 
+                            if (start > thisDate) {
+                                upcoming++;
+                            }
+
                             eventElement.dataset.id = evt.id;
 
                             if (evt.cover) {
-                                console.log(evt.cover);
                                 eventElement.querySelector('.cover').setAttribute('src', evt.cover.source);
                             }
 
@@ -268,6 +272,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }
 
                         eventElementTemplate.parentElement.removeChild(eventElementTemplate);
+
+                        if (upcoming > 0) {
+                            document.querySelector('.icon-calendar-new-events').innerHTML = upcoming.toString();
+                        } else {
+                            document.querySelector('.icon-calendar-new-events').style.display = 'none';
+                        }
                     }).catch(function (e) {
                         console.log(e);
                     });
