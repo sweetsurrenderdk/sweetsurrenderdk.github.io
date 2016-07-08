@@ -10,8 +10,21 @@ layout: compress
         {% include main/navigation.html %}
    
         <div class="page menu-page">
-            {% for menuItem in page.menuItems.items %}     
-                <div class="menu-item" data-id="{{ menuItem.meta.id }}"></div>
+            {% include endomon/get_child_content_ids id=page.meta.id %}
+            {% assign menu_item_ids = result %}
+          
+            {% for menu_item_id in menu_item_ids %}
+                {% include endomon/get_content_by_id id=menu_item_id %}
+                {% assign menu_item = result %}
+
+                <div class="menu-item" data-id="{{ menu_item.meta.id }}">
+                    <div class="info">
+                        <h4>{{ menu_item.title }}</h4>
+                        <p>{{ menu_item.description }}</p>
+                        <p>{{ menu_item.price }}</p>
+                    </div>
+                </div>
+
             {% endfor %}
 
             {% include main/footer.html %}
