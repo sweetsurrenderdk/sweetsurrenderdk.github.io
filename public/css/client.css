@@ -428,11 +428,17 @@ body:before {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff; }
+  color: #fff;
+  height: calc(100vh - 5rem); }
+  @media (max-width: 991px) {
+    .page > section.full-height-banner {
+      height: calc(100vh - 4rem); } }
+  @media (max-width: 767px) {
+    .page > section.full-height-banner {
+      height: calc(100vh - 3rem); } }
   .page > section.full-height-banner .container h1 {
     text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5); }
   .page > section.full-height-banner .container .btn {
