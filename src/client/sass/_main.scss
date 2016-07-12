@@ -33,7 +33,11 @@ body {
             width: calc(100% - 2em);
         }
     }
-    
+   
+    .flex {
+        display: flex;
+    }
+
     .page {
         height: 100%;        
     }

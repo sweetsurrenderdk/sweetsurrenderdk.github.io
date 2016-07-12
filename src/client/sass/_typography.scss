@@ -38,7 +38,9 @@
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;
+    &, input, select, option, textarea {
+        font-family: 'Ubuntu', sans-serif;
+    }
     
     * {
         font-size: 0.88rem;

@@ -8,16 +8,28 @@
             <h4>{{ include.section.subheading }}</h4>
         {% endif %}
 
-        <form action="http://putaitu.endomon.com/api/sweetsurrender_dk/live/forms/submit">
-            <input type="text" required placeholder="{{ include.section.namePlaceholder }}" />
-            <input type="email" required placeholder="{{ include.section.emailPlaceholder }}" />
-            <select required>
-                {% for option in include.section.groupOptions %}
-                    <option value="{{ option }}">{{ option }}</option>
-                {% endfor %}
-            </select>
-            <textarea required placholder="{{ include.section.descriptionPlaceholder }}"></textarea>
-            <input type="submit">{{ include.section.submitButtonText }}</input>
+        <form action="http://putaitu.endomon.com/api/sweetsurrender_dk/live/form/888b3bd6e8d858ca23300c720820d60467289a46/submit" method="POST">
+            <div class="fields">
+                <div class="flex">
+                    <div>
+                        <label for="name">{{ include.section.namePlaceholder }}</label>
+                        <input id="name" type="name" name="name" required placeholder="{{ include.section.namePlaceholder }}" />
+                    </div>
+                    <div>
+                        <label for="email">{{ include.section.emailPlaceholder }}</label>
+                        <input id="email" type="email" name="email" required placeholder="{{ include.section.emailPlaceholder }}" />
+                    </div>
+                </div>
+                <label for="group">{{ include.section.groupPlaceholder }}</label>
+                <select id="group" name="group" required>
+                    {% for option in include.section.groupOptions.items %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+                <label for="description">{{ include.section.descriptionPlaceholder }}</label>
+                <textarea name="description" id="description" required placeholder="{{ include.section.descriptionPlaceholder }}"></textarea>
+            </div>
+            <input class="btn dark" type="submit" value="{{ include.section.submitButtonText }}" />
         </form>
     </div>
 </section>

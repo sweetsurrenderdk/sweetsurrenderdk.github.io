@@ -1,0 +1,47 @@
+.page >section.volunteer-signup {
+    padding: 3em 0em;
+
+    form {
+        input:not([type="submit"]), textarea, select {
+            line-height: 2em;
+            height: 2em;
+            display: block;
+            padding: 0em 0.5em;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+        }
+
+        textarea {
+            resize: none;
+            height: 8rem;
+            width: 100%;
+        }
+
+        .fields {
+            max-width: 32rem;
+            margin: 4em auto;
+
+            .flex {
+                >div {
+                    flex-grow: 1;
+
+                    &:first-child {
+                        margin-right: 0.5rem;
+                    }
+                    
+                    &:last-child {
+                        margin-left: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        .btn {
+            margin-left: auto;
+        }
+    }
+}

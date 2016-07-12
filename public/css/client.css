@@ -120,6 +120,8 @@ body {
     @media (max-width: 767px) {
       body .container {
         width: calc(100% - 2em); } }
+  body .flex {
+    display: flex; }
   body .page {
     height: 100%; }
 
@@ -150,53 +152,63 @@ body {
   src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("/public/fonts/ubuntu-v9-latin-700.eot?#iefix") format("embedded-opentype"), url("/public/fonts/ubuntu-v9-latin-700.woff2") format("woff2"), url("/public/fonts/ubuntu-v9-latin-700.woff") format("woff"), url("/public/fonts/ubuntu-v9-latin-700.ttf") format("truetype"), url("/public/fonts/ubuntu-v9-latin-700.svg#Ubuntu") format("svg");
   /* Legacy iOS */ }
 
-body {
+body, body input, body select, body option, body textarea {
   font-family: 'Ubuntu', sans-serif; }
-  body * {
-    font-size: 0.88rem;
-    line-height: 1.5em; }
-    @media (max-width: 767px) {
-      body * {
-        font-size: 0.88rem; } }
-  body h1, body h2, body h3, body h4 {
-    font-family: 'Gochi Hand', sans-serif; }
-  body h1, body h2, body h3, body h4, body h5, body h6 {
-    font-weight: 700;
-    line-height: 1em;
-    margin-top: 0.6em;
-    margin-bottom: 0.2em; }
-  body h1 {
-    font-size: 4rem; }
-    @media (max-width: 767px) {
-      body h1 {
-        font-size: 3rem; } }
-  body h2 {
-    font-size: 3rem; }
-    @media (max-width: 767px) {
-      body h2 {
-        font-size: 2rem; } }
-  body h3 {
-    font-size: 2rem; }
-    @media (max-width: 767px) {
-      body h3 {
-        font-size: 1.5rem; } }
-  body h4 {
-    font-size: 1.5rem; }
-    @media (max-width: 767px) {
-      body h4 {
-        font-size: 1rem; } }
-  body h5 {
-    font-size: 1rem; }
-    @media (max-width: 767px) {
-      body h5 {
-        font-size: 0.88rem; } }
-  body h6 {
-    font-size: 1rem; }
-    @media (max-width: 767px) {
-      body h6 {
-        font-size: 0.88rem; } }
-  body strong {
-    font-weight: 700; }
+
+body * {
+  font-size: 0.88rem;
+  line-height: 1.5em; }
+  @media (max-width: 767px) {
+    body * {
+      font-size: 0.88rem; } }
+
+body h1, body h2, body h3, body h4 {
+  font-family: 'Gochi Hand', sans-serif; }
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-weight: 700;
+  line-height: 1em;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em; }
+
+body h1 {
+  font-size: 4rem; }
+  @media (max-width: 767px) {
+    body h1 {
+      font-size: 3rem; } }
+
+body h2 {
+  font-size: 3rem; }
+  @media (max-width: 767px) {
+    body h2 {
+      font-size: 2rem; } }
+
+body h3 {
+  font-size: 2rem; }
+  @media (max-width: 767px) {
+    body h3 {
+      font-size: 1.5rem; } }
+
+body h4 {
+  font-size: 1.5rem; }
+  @media (max-width: 767px) {
+    body h4 {
+      font-size: 1rem; } }
+
+body h5 {
+  font-size: 1rem; }
+  @media (max-width: 767px) {
+    body h5 {
+      font-size: 0.88rem; } }
+
+body h6 {
+  font-size: 1rem; }
+  @media (max-width: 767px) {
+    body h6 {
+      font-size: 0.88rem; } }
+
+body strong {
+  font-weight: 700; }
 
 nav {
   position: fixed;
@@ -458,7 +470,34 @@ body:before {
     margin: 2em auto;
     display: block; }
 
-.btn {
+.page > section.volunteer-signup {
+  padding: 3em 0em; }
+  .page > section.volunteer-signup form input:not([type="submit"]), .page > section.volunteer-signup form textarea, .page > section.volunteer-signup form select {
+    line-height: 2em;
+    height: 2em;
+    display: block;
+    padding: 0em 0.5em;
+    margin-bottom: 1rem;
+    width: 100%; }
+  .page > section.volunteer-signup form label {
+    display: block; }
+  .page > section.volunteer-signup form textarea {
+    resize: none;
+    height: 8rem;
+    width: 100%; }
+  .page > section.volunteer-signup form .fields {
+    max-width: 32rem;
+    margin: 4em auto; }
+    .page > section.volunteer-signup form .fields .flex > div {
+      flex-grow: 1; }
+      .page > section.volunteer-signup form .fields .flex > div:first-child {
+        margin-right: 0.5rem; }
+      .page > section.volunteer-signup form .fields .flex > div:last-child {
+        margin-left: 0.5rem; }
+  .page > section.volunteer-signup form .btn {
+    margin-left: auto; }
+
+.page section .btn {
   padding: 1rem 0rem;
   text-align: center;
   box-shadow: 0.1em 0em 0.1em rgba(0, 0, 0, 0.5);
@@ -471,7 +510,7 @@ body:before {
   cursor: pointer;
   position: relative;
   overflow: hidden; }
-  .btn:before {
+  .page section .btn:before {
     content: '';
     position: absolute;
     background-color: #fde9f1;
@@ -482,14 +521,17 @@ body:before {
     transition: transform 0.5s ease;
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%; }
-  .btn:hover:before, .btn:focus:before {
+  .page section .btn:hover:before, .page section .btn:focus:before {
     transform: translate(-50%, -50%) scale(10); }
-  .btn:active {
+  .page section .btn:active {
     margin-bottom: -0.1rem;
     box-shadow: 0rem 0rem 0.1rem rgba(0, 0, 0, 0.5); }
-  .btn, .btn:hover, .btn:focus {
+  .page section .btn, .page section .btn:hover, .page section .btn:focus {
     color: #1a1a1a; }
-  .btn span {
+  .page section .btn.dark {
+    color: #fff;
+    background-color: #1a1a1a; }
+  .page section .btn span {
     position: relative;
     z-index: 10; }
 
