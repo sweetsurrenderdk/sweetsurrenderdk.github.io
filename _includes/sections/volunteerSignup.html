@@ -1,0 +1,23 @@
+<section class="volunteer-signup">
+    <div class="container">
+        {% if include.section.heading %}
+            <h2>{{ include.section.heading }}</h2>
+        {% endif %}
+
+        {% if include.section.subheading %}
+            <h4>{{ include.section.subheading }}</h4>
+        {% endif %}
+
+        <form action="http://putaitu.endomon.com/api/sweetsurrender_dk/live/forms/submit">
+            <input type="text" required placeholder="{{ include.section.namePlaceholder }}" />
+            <input type="email" required placeholder="{{ include.section.emailPlaceholder }}" />
+            <select required>
+                {% for option in include.section.groupOptions %}
+                    <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+            <textarea required placholder="{{ include.section.descriptionPlaceholder }}"></textarea>
+            <input type="submit">{{ include.section.submitButtonText }}</input>
+        </form>
+    </div>
+</section>

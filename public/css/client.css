@@ -448,6 +448,16 @@ body:before {
 .page > section.rich-text-section {
   padding: 8em 0em; }
 
+.page > section.text-blocks .text-block {
+  display: flex; }
+  .page > section.text-blocks .text-block .text, .page > section.text-blocks .text-block .image {
+    flex-grow: 1;
+    width: 50%; }
+  .page > section.text-blocks .text-block .image img {
+    width: calc(100% - 8em);
+    margin: 2em auto;
+    display: block; }
+
 .btn {
   padding: 1rem 0rem;
   text-align: center;

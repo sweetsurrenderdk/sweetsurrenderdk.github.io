@@ -1,0 +1,18 @@
+.page >section.text-blocks {
+    .text-block {
+        display: flex;
+
+        .text, .image {
+            flex-grow: 1;
+            width: 50%;
+        }
+
+        .image {
+            img {
+                width: calc(100% - 8em);
+                margin: 2em auto;
+                display: block;
+            }
+        }
+    }
+}
