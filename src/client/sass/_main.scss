@@ -40,5 +40,14 @@ body {
 
     .page {
         height: 100%;        
+
+        section {
+            .section-anchor {
+                height: 0px;
+                display: block;
+                position: relative;
+                top: -5rem;
+            }
+        }
     }
 }

@@ -124,6 +124,11 @@ body {
     display: flex; }
   body .page {
     height: 100%; }
+    body .page section .section-anchor {
+      height: 0px;
+      display: block;
+      position: relative;
+      top: -5rem; }
 
 @font-face {
   font-family: 'Gochi Hand';

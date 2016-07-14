@@ -1,6 +1,7 @@
 require('./helpers/DebugHelper');
 require('./helpers/MenuHelper');
 require('./helpers/FacebookHelper');
+require('./helpers/FormHelper');
 
 // Globals
 window.toggleWidget = function toggleWidget(name) {
@@ -16,5 +17,6 @@ window.closeWidgets = function closeWidgets() {
 }
 
 // Init
+//FormHelper.init();
 FacebookHelper.populateCalendar();
 MenuHelper.bindNavItems();

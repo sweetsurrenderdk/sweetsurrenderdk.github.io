@@ -20,6 +20,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         require('./helpers/DebugHelper');
         require('./helpers/MenuHelper');
         require('./helpers/FacebookHelper');
+        require('./helpers/FormHelper');
 
         // Globals
         window.toggleWidget = function toggleWidget(name) {
@@ -35,9 +36,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         // Init
+        //FormHelper.init();
         FacebookHelper.populateCalendar();
         MenuHelper.bindNavItems();
-    }, { "./helpers/DebugHelper": 2, "./helpers/FacebookHelper": 3, "./helpers/MenuHelper": 4 }], 2: [function (require, module, exports) {
+    }, { "./helpers/DebugHelper": 2, "./helpers/FacebookHelper": 3, "./helpers/FormHelper": 4, "./helpers/MenuHelper": 5 }], 2: [function (require, module, exports) {
         'use strict';
 
         var lastSenderName = '';
@@ -290,6 +292,105 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         window.FacebookHelper = FacebookHelper;
     }, {}], 4: [function (require, module, exports) {
+        'use strict';
+
+        var FormHelper = function () {
+            function FormHelper() {
+                _classCallCheck(this, FormHelper);
+            }
+
+            _createClass(FormHelper, null, [{
+                key: "apiCall",
+                value: function apiCall(url, data) {
+                    var _this2 = this;
+
+                    return new Promise(function (resolve, reject) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', url);
+                        xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+                        xhr.setRequestHeader('Access-Control-Allow-Origin', location.protocol + '://' + location.hostname);
+
+                        xhr.send();
+
+                        xhr.onreadystatechange = function () {
+                            var DONE = 4;
+                            var OK = 200;
+                            var NOT_MODIFIED = 304;
+
+                            if (xhr.readyState === DONE) {
+                                if (xhr.status == OK || xhr.status == NOT_MODIFIED) {
+                                    var response = xhr.responseText;
+
+                                    if (response && response != 'OK') {
+                                        try {
+                                            response = JSON.parse(response);
+                                        } catch (e) {
+                                            debug.log('Response: ' + response, _this2);
+                                            debug.warning(e, _this2);
+                                        }
+                                    }
+
+                                    resolve(response);
+                                } else {
+                                    reject(new Error(xhr.responseText));
+                                }
+                            }
+                        };
+                    });
+                }
+            }, {
+                key: "bindForm",
+                value: function bindForm(form) {
+                    var _this3 = this;
+
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                        if (form.dataset.disabled) {
+                            return;
+                        }
+
+                        var serialized = {};
+
+                        for (var i = 0; i < form.elements.length; i++) {
+                            var element = form.elements[i];
+
+                            if (element.name) {
+                                serialized[element.name] = element.value;
+                            }
+                        }
+
+                        form.querySelector('input[type="submit"').setAttribute('disabled', true);
+                        form.dataset.disabled = true;
+
+                        debug.log('Submitting form data...', _this3);
+
+                        FormHelper.apiCall( /*form.getAttribute('action')*/'http://jsonplaceholder.typicode.com/posts', serialized).then(function () {
+                            debug.log('Success!', _this3);
+                            form.querySelector('input[type="submit"').setAttribute('disabled', false);
+                            form.dataset.disabled = false;
+                        }).catch(function (e) {
+                            form.dataset.disabled = false;
+                            alert(e);
+                        });
+                    });
+                }
+            }, {
+                key: "init",
+                value: function init() {
+                    var forms = document.querySelectorAll('form');
+
+                    for (var i = 0; i < forms.length; i++) {
+                        this.bindForm(forms[i]);
+                    }
+                }
+            }]);
+
+            return FormHelper;
+        }();
+
+        window.FormHelper = FormHelper;
+    }, {}], 5: [function (require, module, exports) {
         'use strict';
 
         var MenuHelper = function () {
