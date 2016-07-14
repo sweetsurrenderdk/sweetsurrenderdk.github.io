@@ -1,3 +1,19 @@
 <section class="tabbed-iframes">
+    <div class="container">
+        <h2>{{ include.section.heading }}</h2>
 
+        <div class="tabbed-content" data-active-tab="1">
+            <div class="tab-buttons">
+                {% for tabbed_content in include.section.iframes.items %}
+                    <button onclick="this.parentElement.parentElement.dataset.activeTab = {{ forloop.index }};">{{ tabbed_content.tabName }}</button>
+                {% endfor %}
+            </div>
+
+            <div class="tab-panes">
+                {% for tabbed_content in include.section.iframes.items %}
+                    <iframe scrolling="no" id="tab-content-{{ forloop.index}}" src="{{ tabbed_content.iFrameUrl }}"></iframe>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </section>

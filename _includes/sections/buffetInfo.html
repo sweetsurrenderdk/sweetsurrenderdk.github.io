@@ -1,0 +1,21 @@
+<section class="buffet-info">
+    <div class="container">
+        <h2>{{ include.section.heading }}</h2>
+        <h4>{{ include.section.subheading }}</h4>
+
+        <div class="flex">
+            {% for image_id in include.section.images.items %}
+                <img src="{% include endomon/get_media_by_id id=image_id %}" />
+            {% endfor %}
+        </div>
+
+        <div class="flex">
+            <div class="brunch-text">
+                {{ include.section.brunchText | markdownify }}
+            </div>
+            <div class="lunch-text">
+                {{ include.section.lunchText | markdownify }}
+            </div>
+        </div>
+    </div>
+</section>
