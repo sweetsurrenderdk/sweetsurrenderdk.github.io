@@ -3,13 +3,15 @@
         <h2>{{ include.section.heading }}</h2>
         <h4>{{ include.section.subheading }}</h4>
 
-        <div class="flex">
+        <div class="flex images">
             {% for image_id in include.section.images.items %}
-                <img src="{% include endomon/get_media_by_id id=image_id %}" />
+                <div class="image-container">
+                    <div class="image" style="background-image: url('{% include endomon/get_media_by_id id=image_id %}');"></div>
+                </div>
             {% endfor %}
         </div>
 
-        <div class="flex">
+        <div class="flex texts">
             <div class="brunch-text">
                 {{ include.section.brunchText | markdownify }}
             </div>

@@ -1,0 +1,38 @@
+.page >section.buffet-info {
+    padding: 3rem 0rem;
+
+    h4 {
+        margin-bottom: 1em;
+    }
+
+    .flex.images {
+        .image-container {
+            flex-grow: 1;
+            position: relative;
+            margin: 0rem 1rem;
+            height: 15rem;
+
+            &:first-child {
+                margin-left: 0px;
+            }
+            
+            &:last-child {
+                margin-right: 0px;
+            }
+
+            .image {
+                background-position: center;
+                background-size: cover;
+                height: 100%;
+            }
+        }  
+    }
+
+    .flex.texts {
+        margin-top: 1rem;
+
+        >div {
+            flex-grow: 1;
+        }
+    }
+}

@@ -605,6 +605,28 @@ body:before {
   .page > section.tabbed-iframes .tabbed-content[data-active-tab="10"] .tab-panes iframe:nth-of-type(10) {
     display: block; }
 
+.page > section.buffet-info {
+  padding: 3rem 0rem; }
+  .page > section.buffet-info h4 {
+    margin-bottom: 1em; }
+  .page > section.buffet-info .flex.images .image-container {
+    flex-grow: 1;
+    position: relative;
+    margin: 0rem 1rem;
+    height: 15rem; }
+    .page > section.buffet-info .flex.images .image-container:first-child {
+      margin-left: 0px; }
+    .page > section.buffet-info .flex.images .image-container:last-child {
+      margin-right: 0px; }
+    .page > section.buffet-info .flex.images .image-container .image {
+      background-position: center;
+      background-size: cover;
+      height: 100%; }
+  .page > section.buffet-info .flex.texts {
+    margin-top: 1rem; }
+    .page > section.buffet-info .flex.texts > div {
+      flex-grow: 1; }
+
 .page section .btn {
   padding: 1rem 0rem;
   text-align: center;
