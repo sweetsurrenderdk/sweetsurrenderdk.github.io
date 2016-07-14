@@ -1,4 +1,4 @@
-{% include endomon/get_content_by_id id=include.id %}
+{% include hashbrown/get_content_by_id id=include.id %}
 {% assign parent = result %}
 
 {% assign child_count = 0 %}

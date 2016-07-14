@@ -6,7 +6,9 @@
        
         <div class="pages-container">
             <div class="pages">
-                {% for p in site.pages %}
+                {% assign pages = site.pages | sort: "navOrder" %}
+
+                {% for p in pages %}
                     {% if p.showInNav %}
                         <a href="{{ p.url }}">{{ p.title }}</a>
                     {% endif %}
