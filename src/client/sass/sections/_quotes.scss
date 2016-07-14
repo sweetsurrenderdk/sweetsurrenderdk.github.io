@@ -1,0 +1,19 @@
+.page >section.quotes {
+    padding: 3rem 0rem;
+    
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .quote {
+        width: 50%;
+        float: left;
+        padding: 1.5rem;
+
+        .quote-name {
+            text-align: right;
+        }
+    }
+}

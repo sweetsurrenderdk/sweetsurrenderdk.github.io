@@ -502,6 +502,19 @@ body:before {
   .page > section.volunteer-signup form .btn {
     margin-left: auto; }
 
+.page > section.quotes {
+  padding: 3rem 0rem; }
+  .page > section.quotes:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .page > section.quotes .quote {
+    width: 50%;
+    float: left;
+    padding: 1.5rem; }
+    .page > section.quotes .quote .quote-name {
+      text-align: right; }
+
 .page section .btn {
   padding: 1rem 0rem;
   text-align: center;
