@@ -43,8 +43,11 @@ layout: compress
                         {% assign size = 0 %}
                     {% endif %}
 
-                    <a href="#" name="{{ menu_item.meta.id }}" onclick="MenuHelper.focusItem('{{ menu_item.meta.id }}'); return false;" class="menu-item child-item" data-size="{{ size }}" id="_{{ menu_item.meta.id }}">
-                        <img src="{% include hashbrown/get_media_by_id id=menu_item.image %}" class="image" />
+                    <a style="{% if menu_item.color %}background-color: {{ menu_item.color }};{% endif %}" href="#" name="{{ menu_item.meta.id }}" onclick="MenuHelper.focusItem('{{ menu_item.meta.id }}'); return false;" class="menu-item child-item" data-size="{{ size }}" id="_{{ menu_item.meta.id }}">
+                        {% if menu_item.image %}
+                            <img src="{% include hashbrown/get_media_by_id id=menu_item.image %}" class="image" />
+                        {% endif %}
+
                         <div class="info">
                             <p class="title">{{ menu_item.title }}</p>
                             <div class="details">
