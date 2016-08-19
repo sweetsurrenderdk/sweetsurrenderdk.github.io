@@ -113,14 +113,13 @@ body {
                     padding-top: 100%;
                 }
 
-                &:focus {
+                &:focus, &:hover {
                     border-color: $white;
 
                     .info {
-                        .details {
-                            height: 100%;
-                            opacity: 1;
-                        }
+                        height: auto;
+                        padding: 1em;
+                        opacity: 1;
                     }
                 }
 
@@ -134,20 +133,23 @@ body {
                 }
                
                 .info {
-                    background-color: rgba(255, 255, 255, 0.5);
-                    color: rgba(0, 0, 0, 0.5);
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: $white;
                     position: absolute;
                     top: 0px;
                     left: 0px;
                     width: 100%;
+                    height: 0%;
+                    overflow: hidden;
+                    transition: opacity 0.5s ease;
                     z-index: 10;
-                    padding: 1em;
+                    padding: 0em;
+                    opacity: 0;
 
                     .title {
                         font-family: 'Gochi Hand';
                         font-size: 2em;
                         line-height: 1em;
-                        color: rgba(0, 0, 0, 0.5);
 
                         @media($xs) {
                             font-size: 1.2em;
@@ -155,24 +157,8 @@ body {
                     }
 
                     .details {
-                        background-color: rgba(255, 255, 255, 0.5);
-                        height: 0px;
-                        overflow-y: hidden;
-                        opacity: 0;
-                        transition: opacity 0.5s ease, height 0.5s ease;
-                        position: relative;
-
-                        .description {
-                            position: absolute;
-                            top: 1em;
-                            left: 0px;
-                            width: calc(100%);
-                        }
-                        
                         .price {
-                            position: absolute;
-                            bottom: 0px;
-                            right: 0px;
+                            text-align: right;
                             font-family: 'Gochi Hand';
                             font-size: 2em;
 

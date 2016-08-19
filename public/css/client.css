@@ -833,10 +833,11 @@ body .page.menu-page {
         content: '';
         display: block;
         padding-top: 100%; }
-      body .page.menu-page .menu-gallery .menu-item:focus {
+      body .page.menu-page .menu-gallery .menu-item:focus, body .page.menu-page .menu-gallery .menu-item:hover {
         border-color: #fff; }
-        body .page.menu-page .menu-gallery .menu-item:focus .info .details {
-          height: 100%;
+        body .page.menu-page .menu-gallery .menu-item:focus .info, body .page.menu-page .menu-gallery .menu-item:hover .info {
+          height: auto;
+          padding: 1em;
           opacity: 1; }
       body .page.menu-page .menu-gallery .menu-item .image {
         position: absolute;
@@ -846,43 +847,32 @@ body .page.menu-page {
         width: 100%;
         height: 100%; }
       body .page.menu-page .menu-gallery .menu-item .info {
-        background-color: rgba(255, 255, 255, 0.5);
-        color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
         position: absolute;
         top: 0px;
         left: 0px;
         width: 100%;
+        height: 0%;
+        overflow: hidden;
+        transition: opacity 0.5s ease;
         z-index: 10;
-        padding: 1em; }
+        padding: 0em;
+        opacity: 0; }
         body .page.menu-page .menu-gallery .menu-item .info .title {
           font-family: 'Gochi Hand';
           font-size: 2em;
-          line-height: 1em;
-          color: rgba(0, 0, 0, 0.5); }
+          line-height: 1em; }
           @media (max-width: 767px) {
             body .page.menu-page .menu-gallery .menu-item .info .title {
               font-size: 1.2em; } }
-        body .page.menu-page .menu-gallery .menu-item .info .details {
-          background-color: rgba(255, 255, 255, 0.5);
-          height: 0px;
-          overflow-y: hidden;
-          opacity: 0;
-          transition: opacity 0.5s ease, height 0.5s ease;
-          position: relative; }
-          body .page.menu-page .menu-gallery .menu-item .info .details .description {
-            position: absolute;
-            top: 1em;
-            left: 0px;
-            width: calc(100%); }
-          body .page.menu-page .menu-gallery .menu-item .info .details .price {
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
-            font-family: 'Gochi Hand';
-            font-size: 2em; }
-            @media (max-width: 767px) {
-              body .page.menu-page .menu-gallery .menu-item .info .details .price {
-                font-size: 1.2em; } }
+        body .page.menu-page .menu-gallery .menu-item .info .details .price {
+          text-align: right;
+          font-family: 'Gochi Hand';
+          font-size: 2em; }
+          @media (max-width: 767px) {
+            body .page.menu-page .menu-gallery .menu-item .info .details .price {
+              font-size: 1.2em; } }
       body .page.menu-page .menu-gallery .menu-item[data-size="0"] {
         width: 100%; }
       body .page.menu-page .menu-gallery .menu-item[data-size="1"] {
