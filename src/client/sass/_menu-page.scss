@@ -19,19 +19,17 @@ body {
     
     .page.menu-page {
         height: auto;
-        display: flex;
         background-color: $darkest-grey;
 
         .menu-nav {
+            position: fixed;
+            z-index: 50;
             width: 20rem;
             top: 5rem;
             height: calc(100% - 5rem);
-            flex-shrink: 0;
             background-color: $darkest-grey;
 
             @media($sm) {
-                position: fixed;
-                z-index: 50;
                 transition: right 0.5s ease;
                 top: 4rem;
                 height: calc(100% - 4rem);
@@ -90,7 +88,8 @@ body {
 
         .menu-gallery {
             border: 1px solid transparent;
-            flex-grow: 1;
+            width: calc(100% - 20rem);
+            margin-left: auto;
 
             .grid-sizer {
                 width: 25%;
@@ -117,9 +116,11 @@ body {
                     border-color: $white;
 
                     .info {
-                        height: auto;
-                        padding: 1em;
-                        opacity: 1;
+                        .details {
+                            height: auto;
+                            opacity: 1;
+                            padding: 1em;
+                        }
                     }
                 }
 
@@ -133,20 +134,18 @@ body {
                 }
                
                 .info {
-                    background-color: rgba(0, 0, 0, 0.5);
-                    color: $white;
+                    color: rgba(0, 0, 0, 0.5);
                     position: absolute;
                     top: 0px;
                     left: 0px;
                     width: 100%;
-                    height: 0%;
+                    height: 100%;
                     overflow: hidden;
                     transition: opacity 0.5s ease;
                     z-index: 10;
-                    padding: 0em;
-                    opacity: 0;
 
                     .title {
+                        padding: 0.5em;
                         font-family: 'Gochi Hand';
                         font-size: 2em;
                         line-height: 1em;
@@ -157,6 +156,22 @@ body {
                     }
 
                     .details {
+                        opacity: 0;
+                        height: 0px;
+                        overflow-y: hidden;
+                        transition: opacity 0.5s ease;
+                        position: absolute;
+                        bottom: 0em;
+                        right: 0em;
+                        width: 100%;
+                        padding: 0em;
+                        background-color: rgba(255, 255, 255, 0.5);
+                        color: $darker-grey;
+
+                        .description {
+                            font-size: 1rem;
+                        }
+
                         .price {
                             text-align: right;
                             font-family: 'Gochi Hand';
