@@ -6,10 +6,11 @@
        
         <div class="pages-container">
             <div class="pages">
-                {% assign pages = site.pages | sort: "navOrder" %}
+                {% include hashbrown/get_all_pages %}
+                {% assign pages = result | sort: "navOrder" %}
 
                 {% for p in pages %}
-                    {% if p.showInNav and p.meta.language == page.meta.language %}
+                    {% if p.showInNav %}
                         <a href="{{ p.url }}">{{ p.title }}</a>
                     {% endif %}
                 {% endfor %} 
