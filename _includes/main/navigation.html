@@ -9,7 +9,7 @@
                 {% assign pages = site.pages | sort: "navOrder" %}
 
                 {% for p in pages %}
-                    {% if p.showInNav %}
+                    {% if p.showInNav and p.meta.language == page.meta.language %}
                         <a href="{{ p.url }}">{{ p.title }}</a>
                     {% endif %}
                 {% endfor %} 
