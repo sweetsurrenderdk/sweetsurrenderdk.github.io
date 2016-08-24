@@ -817,6 +817,10 @@ body .page.menu-page {
     border: 1px solid transparent;
     width: calc(100% - 20rem);
     margin-left: auto; }
+    @media (max-width: 991px) {
+      body .page.menu-page .menu-gallery {
+        width: 100%;
+        margin: 0px; } }
     body .page.menu-page .menu-gallery .grid-sizer {
       width: 25%; }
       @media (max-width: 991px) {

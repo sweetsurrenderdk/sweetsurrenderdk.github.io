@@ -91,6 +91,11 @@ body {
             width: calc(100% - 20rem);
             margin-left: auto;
 
+            @media($sm) {
+                width: 100%;
+                margin: 0px;
+            }
+
             .grid-sizer {
                 width: 25%;
                 
