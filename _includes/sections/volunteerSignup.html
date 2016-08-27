@@ -24,7 +24,7 @@
                 </div>
                 <label for="group">{{ include.section.groupPlaceholder }}</label>
                 <select id="group" name="group" required>
-                    {% for option in include.section.groupOptions.items %}
+                    {% for option in include.section.groupOptions %}
                         <option value="{{ option }}">{{ option }}</option>
                     {% endfor %}
                 </select>

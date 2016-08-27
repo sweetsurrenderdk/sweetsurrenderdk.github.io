@@ -4,7 +4,7 @@
             <h2>{{ include.section.heading }}</h2>
         {% endif %}
 
-        {% for text_block in include.section.textBlocks.items %}
+        {% for text_block in include.section.textBlocks %}
             <div class="text-block">
                 {% if text_block.text %}
                     <div class="text">{{ text_block.text | markdownify }}</div>

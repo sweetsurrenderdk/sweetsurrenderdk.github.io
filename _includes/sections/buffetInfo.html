@@ -4,7 +4,7 @@
         <h4>{{ include.section.subheading }}</h4>
 
         <div class="flex images">
-            {% for image_id in include.section.images.items %}
+            {% for image_id in include.section.images %}
                 <div class="image-container">
                     <div class="image" style="background-image: url('{% include hashbrown/get_media_by_id id=image_id %}');"></div>
                 </div>

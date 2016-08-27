@@ -10,7 +10,7 @@ layout: compress
         {% include main/navigation.html %}
 
         <div class="page">
-            {% for section in page.sections.items %}     
+            {% for section in page.sections %}     
                 {% include hashbrown/render_section section = section %}
             {% endfor %}
 
