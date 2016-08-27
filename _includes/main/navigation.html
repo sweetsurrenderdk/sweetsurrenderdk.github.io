@@ -1,6 +1,12 @@
+{% if page.meta.language == 'da' %}
+    {% assign home_url = '/da/hjem/' %}
+{% else %}
+    {% assign home_url = '/en/home/' %}
+{% endif %}
+
 <nav>
     <div class="container">
-        <a class="nav-brand" href="/">
+        <a class="nav-brand" href="{{ home_url }}">
             <img src="/public/img/logo.png" alt="Sweet Surrender logo" />
         </a>
        
