@@ -107,6 +107,31 @@ body {
   @media (max-width: 767px) {
     body {
       padding-top: 3rem; } }
+  body .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    top: 0px;
+    z-index: 300; }
+    body .modal-backdrop.active {
+      opacity: 1; }
+      body .modal-backdrop.active .modal {
+        top: 50%; }
+    body .modal-backdrop .modal {
+      transition: top 0.5s ease;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      body .modal-backdrop .modal img.modal-body {
+        display: block;
+        margin: 0px auto;
+        max-width: 80%;
+        max-height: 80%; }
   body .container {
     margin-left: auto;
     margin-right: auto;
@@ -124,6 +149,39 @@ body {
     display: flex; }
   body .page {
     height: 100%; }
+    body .page section ol, body .page section ul {
+      padding: 1em 0em 1em 2em; }
+      body .page section ol li, body .page section ul li {
+        margin-bottom: 0.5em; }
+    body .page section ol {
+      list-style-type: decimal; }
+    body .page section ul {
+      list-style-type: disc; }
+    body .page section p {
+      margin-bottom: 1em; }
+    body .page section .flex.images {
+      margin-top: 2em; }
+      @media (max-width: 767px) {
+        body .page section .flex.images {
+          display: block; } }
+      body .page section .flex.images .image-container {
+        flex-grow: 1;
+        position: relative;
+        margin: 0rem 1rem;
+        height: 15rem; }
+        body .page section .flex.images .image-container:first-child {
+          margin-left: 0px; }
+        body .page section .flex.images .image-container:last-child {
+          margin-right: 0px; }
+        @media (max-width: 767px) {
+          body .page section .flex.images .image-container {
+            margin: 0em 0em 1em 0em;
+            width: 100%; } }
+        body .page section .flex.images .image-container .image {
+          cursor: pointer;
+          background-position: center;
+          background-size: cover;
+          height: 100%; }
     body .page section .section-anchor {
       height: 0px;
       display: block;
@@ -171,7 +229,6 @@ body h1, body h2, body h3, body h4 {
   font-family: 'Gochi Hand', sans-serif; }
 
 body h1, body h2, body h3, body h4, body h5, body h6 {
-  font-weight: 700;
   line-height: 1em;
   margin-top: 0.6em;
   margin-bottom: 0.2em; }
@@ -457,13 +514,14 @@ body:before {
     .page > section.full-height-banner {
       height: calc(100vh - 3rem); } }
   .page > section.full-height-banner .container h1 {
-    text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5); }
+    text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em; }
   .page > section.full-height-banner .container .btn {
     margin-left: auto;
     margin-right: auto; }
 
 .page > section.rich-text-section {
-  padding: 8em 0em; }
+  padding: 4em 0em; }
 
 .page > section.text-blocks .text-block {
   display: flex; }
@@ -512,6 +570,10 @@ body:before {
     width: 50%;
     float: left;
     padding: 1.5rem; }
+    @media (max-width: 767px) {
+      .page > section.quotes .quote {
+        width: 100%;
+        float: none; } }
     .page > section.quotes .quote .quote-name {
       text-align: right; }
 
@@ -609,21 +671,21 @@ body:before {
   padding: 3rem 0rem; }
   .page > section.buffet-info h4 {
     margin-bottom: 1em; }
-  .page > section.buffet-info .flex.images .image-container {
-    flex-grow: 1;
-    position: relative;
-    margin: 0rem 1rem;
-    height: 15rem; }
-    .page > section.buffet-info .flex.images .image-container:first-child {
-      margin-left: 0px; }
-    .page > section.buffet-info .flex.images .image-container:last-child {
-      margin-right: 0px; }
-    .page > section.buffet-info .flex.images .image-container .image {
-      background-position: center;
-      background-size: cover;
-      height: 100%; }
   .page > section.buffet-info .flex.texts {
     margin-top: 1rem; }
+    @media (max-width: 767px) {
+      .page > section.buffet-info .flex.texts {
+        display: block; } }
+    .page > section.buffet-info .flex.texts .brunch-text {
+      padding-right: 1em; }
+      @media (max-width: 767px) {
+        .page > section.buffet-info .flex.texts .brunch-text {
+          padding: 0em 0em 1em 0em; } }
+    .page > section.buffet-info .flex.texts .lunch-text {
+      padding-left: 1em; }
+      @media (max-width: 767px) {
+        .page > section.buffet-info .flex.texts .lunch-text {
+          padding: 0px; } }
     .page > section.buffet-info .flex.texts > div {
       flex-grow: 1; }
 
@@ -665,7 +727,7 @@ section.supported-organisations .container {
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%; }
   .page section .btn:hover:before, .page section .btn:focus:before {
-    transform: translate(-50%, -50%) scale(10); }
+    transform: translate(-50%, -50%) scale(15); }
   .page section .btn:active {
     margin-bottom: -0.1rem;
     box-shadow: 0rem 0rem 0.1rem rgba(0, 0, 0, 0.5); }

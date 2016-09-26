@@ -12,6 +12,11 @@
         float: left;
         padding: 1.5rem;
 
+        @media($xs) {
+            width: 100%;
+            float: none;
+        }
+
         .quote-name {
             text-align: right;
         }

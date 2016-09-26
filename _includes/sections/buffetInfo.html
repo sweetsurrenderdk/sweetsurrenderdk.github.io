@@ -1,7 +1,14 @@
 <section class="buffet-info">
     <div class="container">
-        <h2>{{ include.section.heading }}</h2>
-        <h4>{{ include.section.subheading }}</h4>
+        {% if include.section.heading %}
+            <h2 id="{{ include.section.heading | handleize | downcase }}">{{ include.section.heading }}</h2>
+        {% endif %}
+
+        {% if include.section.subheading %}
+            <h4>{{ include.section.subheading }}</h4>
+        {% endif %}
+
+        {{ include.section.body | markdownify }}
 
         <div class="flex images">
             {% for image_id in include.section.images %}

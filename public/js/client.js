@@ -21,6 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         require('./helpers/MenuHelper');
         require('./helpers/FacebookHelper');
         require('./helpers/FormHelper');
+        require('./helpers/GalleryHelper');
 
         // Globals
         window.toggleWidget = function toggleWidget(name) {
@@ -39,7 +40,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         //FormHelper.init();
         FacebookHelper.populateCalendar();
         MenuHelper.bindNavItems();
-    }, { "./helpers/DebugHelper": 2, "./helpers/FacebookHelper": 3, "./helpers/FormHelper": 4, "./helpers/MenuHelper": 5 }], 2: [function (require, module, exports) {
+        GalleryHelper.bindImages();
+    }, { "./helpers/DebugHelper": 2, "./helpers/FacebookHelper": 3, "./helpers/FormHelper": 4, "./helpers/GalleryHelper": 5, "./helpers/MenuHelper": 6 }], 2: [function (require, module, exports) {
         'use strict';
 
         var lastSenderName = '';
@@ -391,6 +393,84 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         window.FormHelper = FormHelper;
     }, {}], 5: [function (require, module, exports) {
+        'use strict';
+
+        var GalleryHelper = function () {
+            function GalleryHelper() {
+                _classCallCheck(this, GalleryHelper);
+            }
+
+            _createClass(GalleryHelper, null, [{
+                key: "bindImages",
+                value: function bindImages() {
+                    var images = document.querySelectorAll('section img, section .image');
+
+                    if (images) {
+                        for (var i = 0; i < images.length; i++) {
+                            var image = images[i];
+
+                            image.addEventListener('click', function () {
+                                var src = this.getAttribute('src');
+
+                                if (!src) {
+                                    src = this.style.backgroundImage;
+
+                                    src = src.replace('url(', '').replace(')', '').replace(/\"/gi, "");
+                                }
+
+                                GalleryHelper.openModal(src);
+                            });
+                        }
+                    }
+                }
+            }, {
+                key: "openModal",
+                value: function openModal(src) {
+                    // Render elements
+                    var modalBackdrop = document.createElement('div');
+                    modalBackdrop.className = 'modal-backdrop';
+
+                    var modal = document.createElement('div');
+                    modal.className = 'modal';
+
+                    var modalContent = document.createElement('div');
+                    modalContent.className = 'modal-content';
+
+                    var modalBody = document.createElement('img');
+                    modalBody.className = 'modal-body';
+                    modalBody.setAttribute('src', src);
+
+                    // Set up event listeners
+                    modalBackdrop.addEventListener('click', function () {
+                        modalBackdrop.classList.toggle('active', false);
+
+                        setTimeout(function () {
+                            if (modalBackdrop && modalBackdrop.parentElement) {
+                                modalBackdrop.parentElement.removeChild(modalBackdrop);
+                            }
+                        }, 500);
+                    });
+
+                    // Parent elements
+                    modalBackdrop.appendChild(modal);
+                    modal.appendChild(modalContent);
+                    modalContent.appendChild(modalBody);
+                    document.body.appendChild(modalBackdrop);
+
+                    // Wait a while and set active class
+                    setTimeout(function () {
+                        modalBackdrop.classList.toggle('active', true);
+                    }, 50);
+
+                    return modal;
+                }
+            }]);
+
+            return GalleryHelper;
+        }();
+
+        window.GalleryHelper = GalleryHelper;
+    }, {}], 6: [function (require, module, exports) {
         'use strict';
 
         var MenuHelper = function () {

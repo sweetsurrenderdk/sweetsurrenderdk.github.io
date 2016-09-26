@@ -4,12 +4,12 @@
 
         {% for quote in include.section.quotes %}
             <div class="quote">
-                <h3 class="quote-text">
+                <p class="quote-text">
                     &ldquo;{{ quote.text }}&rdquo;
-                </h3>
-                <div class="quote-name">
+                </p>
+                <h3 class="quote-name">
                     - {{ quote.name }}
-                </div>
+                </h3>
             </div>
         {% endfor %}
     </div>

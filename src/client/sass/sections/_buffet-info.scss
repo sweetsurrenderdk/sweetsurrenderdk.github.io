@@ -5,31 +5,28 @@
         margin-bottom: 1em;
     }
 
-    .flex.images {
-        .image-container {
-            flex-grow: 1;
-            position: relative;
-            margin: 0rem 1rem;
-            height: 15rem;
-
-            &:first-child {
-                margin-left: 0px;
-            }
-            
-            &:last-child {
-                margin-right: 0px;
-            }
-
-            .image {
-                background-position: center;
-                background-size: cover;
-                height: 100%;
-            }
-        }  
-    }
-
     .flex.texts {
         margin-top: 1rem;
+
+        @media($xs) {
+            display: block;
+        }
+
+        .brunch-text {
+            padding-right: 1em;
+
+            @media($xs) {
+                padding: 0em 0em 1em 0em;
+            }
+        }
+        
+        .lunch-text {
+            padding-left: 1em;
+
+            @media($xs) {
+                padding: 0px;
+            }
+        }
 
         >div {
             flex-grow: 1;
