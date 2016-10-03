@@ -7,5 +7,9 @@
         {% if include.section.button.text %}
             <a class="btn" href="{{ include.section.button.href }}" target="{{ include.section.button.target }}"><span>{{ include.section.button.text }}</span></a>
         {% endif %}
+        
+        {% for button in include.section.buttons %}
+            <a class="btn" href="{{ button.href }}" target="{{ button.target }}"><span>{{ button.text }}</span></a>
+        {% endfor %}
     </div>
 </section>
