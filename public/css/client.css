@@ -520,6 +520,9 @@ body:before {
     margin-left: auto;
     margin-right: auto; }
 
+.page > section.rich-text-section {
+  padding: 3em 0em; }
+
 .page > section.text-blocks .text-block {
   display: flex; }
   .page > section.text-blocks .text-block .text, .page > section.text-blocks .text-block .image {
