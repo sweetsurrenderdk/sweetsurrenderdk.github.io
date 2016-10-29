@@ -16,7 +16,24 @@ body {
         padding-top: 3rem;
     }   
 
-    
+    .index-page {
+        min-height: 300px;
+        display: flex;
+        flex-direction: vertical;
+        align-items: center;
+        justify-content: center;
+
+        .languages {
+             a {
+                padding: 15px;
+
+                img {
+                    width: 64px;
+                }
+             }
+        }
+    }    
+
     .modal-backdrop {
         background-color: rgba(0, 0, 0, 0.5);
         position: fixed;

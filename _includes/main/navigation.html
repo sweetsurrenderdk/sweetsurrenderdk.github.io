@@ -1,8 +1,20 @@
 {% if page.meta.language == 'da' %}
     {% assign home_url = '/da/hjem/' %}
+    {% assign opposite_language = 'en' %}
 {% else %}
     {% assign home_url = '/en/home/' %}
+    {% assign opposite_language = 'da' %}
 {% endif %}
+
+{% for p in site.pages %}
+    {% if p.meta.language == opposite_language and p.meta.id == page.meta.id %}
+        {% assign opposite_page_url = p.url %}
+
+    {% elsif p.meta.id == '75fb3bd6e8d858ca23300c720820d60467289a46' and p.meta.language == page.meta.language %}
+        {% assign about_page_url = p.url %}
+
+    {% endif %}
+{% endfor %}
 
 <nav>
     <div class="container">
@@ -25,7 +37,8 @@
 
         <div class="widgets">
             <div class="widgets-position-wrapper">
-                <a href="/about-us/#become-a-volunteer">
+                <a href="{{ opposite_page_url }}" style="background-image: url('/public/img/{{ opposite_language }}.jpg')"></a>
+                <a href="{{ about_page_url }}#tabbed-iframes">
                     <img src="/public/img/icon-volunteer.png" alt="Volunteer" />
                 </a>
                 <button class="btn-toggle-calendar" onclick="toggleWidget('calendar')">

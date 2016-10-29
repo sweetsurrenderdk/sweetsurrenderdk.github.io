@@ -24,9 +24,9 @@ nav {
             height: 100%;
             position: relative;
 
-            @media($xs) {
-                top: 3rem;
-                height: calc(100% - 3rem);
+            @media($sm) {
+                top: 4rem;
+                height: calc(100% - 4rem);
                 width: 100%;
                 position: fixed;
                 right: 0rem;
@@ -39,10 +39,15 @@ nav {
                 max-width: 20rem;
             }
             
+            @media($xs) {
+                top: 3rem;
+                height: calc(100% - 3rem);
+            }
+            
             .pages {
                 display: flex;
 
-                @media($xs) {
+                @media($sm) {
                     position: absolute;
                     top: 50%;
                     width: 100%;
@@ -55,7 +60,7 @@ nav {
                 a {
                     padding: 0em 1em;
 
-                    @media($xs) {
+                    @media($sm) {
                         font-family: 'Gochi Hand', sans-serif;
                         font-size: 2rem;
                     }
@@ -105,11 +110,14 @@ nav {
                 height: 100%;
 
                 a, button {
+                    border-radius: 50%;
                     display: block;
                     margin-top: 1rem;
+                    margin-left: 1rem;
                     height: 3rem;
                     width: 3rem;
                     position: relative;
+                    background-size: cover;
                     
                     @media($sm) {
                         margin-top: 0.5rem;
@@ -137,14 +145,13 @@ nav {
                 }
 
                 .btn-toggle-menu, .btn-toggle-calendar {
-                    border-radius: 50%;
                     background-color: $pink;
                 }
 
                 .btn-toggle-menu {
                     display: none;
 
-                    @media($xs) {
+                    @media($sm) {
                         display: block;
                     }
                 }
