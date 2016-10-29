@@ -1,6 +1,6 @@
 'use strict';
 
-// Us eextract text plugin
+// Use extract text plugin
 let ExtractText = require('extract-text-webpack-plugin');
 
 // Define settings
