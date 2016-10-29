@@ -1,3 +1,5 @@
+require('../sass/client');
+
 require('./helpers/DebugHelper');
 require('./helpers/MenuHelper');
 require('./helpers/FacebookHelper');
