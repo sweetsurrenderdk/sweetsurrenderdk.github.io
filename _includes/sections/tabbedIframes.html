@@ -11,7 +11,7 @@
 
             <div class="tab-panes">
                 {% for tabbed_content in include.section.iframes %}
-                    <iframe scrolling="no" id="tab-content-{{ forloop.index}}" src="{{ tabbed_content.iFrameUrl }}"></iframe>
+                    <iframe scrolling="no" style="height: {{ tabbed_content.height }}" id="tab-content-{{ forloop.index}}" src="{{ tabbed_content.iFrameUrl }}"></iframe>
                 {% endfor %}
             </div>
         </div>

@@ -73,10 +73,6 @@
 	MenuHelper.bindNavItems();
 	GalleryHelper.bindImages();
 
-	iFrameResize({
-	    log: true
-	}, '.tabbed-iframes iframe');
-
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
