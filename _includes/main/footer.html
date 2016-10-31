@@ -1,3 +1,23 @@
+{% if page.meta.language == 'da' %}
+    {% assign str_mon = 'Mandag' %}
+    {% assign str_tue_fri = 'Tirsdag - Fredag' %}
+    {% assign str_sat_holidays = 'Lørdag og helligdage' %}
+    {% assign str_sun = 'Søndag' %}
+    {% assign str_closed = 'Lukket' %}
+    {% assign str_health = 'Se Fødevarestyrelsens smiley-rapporter' %}
+    {% assign str_putaitu = 'Website doneret af <a href="http://putaitu.com/da/hjem" target="_blank">Putaitu Productions</a> og administreret med <a href="http://hashbrown.rocks" target="_blank">HashBrown CMS</a>' %}
+
+{% else %}
+    {% assign str_mon = 'Monday' %}
+    {% assign str_tue_fri = 'Tuesday - Fredag' %}
+    {% assign str_sat_holidays = 'Saturday & holidays' %}
+    {% assign str_sun = 'Sunday' %}
+    {% assign str_closed = 'Closed' %}
+    {% assign str_health = 'Health inspection reports from Fødevarestyrelsen' %}
+    {% assign str_putaitu = 'Website donated by <a href="http://putaitu.com/en/home" target="_blank">Putaitu Productions</a> and managed with <a href="http://hashbrown.rocks" target="_blank">HashBrown CMS</a>' %}
+
+{% endif %}
+
 <footer>
     <div class="info">
         <div class="container">
@@ -15,20 +35,20 @@
                     <span class="fa fa-clock-o"></span>
                     <table>
                         <tr>
-                            <td class="label">Monday</td>
-                            <td class="hours">Closed</td>
+                            <td class="label">{{ str_mon }}</td>
+                            <td class="hours">{{ str_closed }}</td>
                         </tr>
                         <tr>
-                            <td class="label">Tuesday - Friday</td>
+                            <td class="label">{{ str_tue_fri }}</td>
                             <td class="hours">10 - 20</td>
                         </tr>
                         <tr>
-                            <td class="label">Saturday & holidays</td>
+                            <td class="label">{{ str_sat_holidays }}</td>
                             <td class="hours">10 - 16</td>
                         </tr>
                         <tr>
-                            <td class="label">Sunday</td>
-                            <td class="hours">Closed</td>
+                            <td class="label">{{ str_sun }}</td>
+                            <td class="hours">{{ str_closed }}</td>
                         </tr>
                     </table>
                 </div>
@@ -47,11 +67,15 @@
             </div>
         </div>
     </div>
+    
     <div class="copyright">
         <div class="container">
             <img class="copyright-logo" src="/public/img/logo.png" alt="Sweet Surrender logo" />
             <p>Copyright 2013-2016 Café Sweet Surrender</p>
-            <a href="http://www.findsmiley.dk/da-DK/Searching/DetailsView.htm?virk=521348" target="_blank">Health inspection reports from Fødevarestyrelsen</a>
+            <a href="http://www.findsmiley.dk/da-DK/Searching/DetailsView.htm?virk=521348" target="_blank">{{ str_health }}</a>
+            <br />
+            <br />
+            <p>{{ str_putaitu }}</p>
         </div>
     </div>
 </footer>
