@@ -690,6 +690,9 @@ section.supported-organisations .container {
     text-align: center;
     float: left;
     width: 25%; }
+    section.supported-organisations .container .org img {
+      width: 100%;
+      max-width: 100px; }
     @media (max-width: 991px) {
       section.supported-organisations .container .org {
         width: 50%; } }
