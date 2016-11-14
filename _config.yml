@@ -2,26 +2,3 @@
 markdown: kramdown
 exclude:
 - node_modules
-menu_categories: 
-    breakfast:
-        en: Breakfast
-        da: Morgenmad 
-    brunch:
-        da: Brunch
-        en: Brunch
-    sandwichSalad:
-        da: Sandwich/salat
-        en: Sandwich/salad
-    childrensMenu:
-        da: Børneretter
-        en: Children's menu
-    warmMeal:
-        da: Varm mad
-        en: Warm meal
-    snacks:
-        da: Snacks
-        en: Snacks
-    drinks:
-        da: Drikkevarer
-        en: Drinks
-
