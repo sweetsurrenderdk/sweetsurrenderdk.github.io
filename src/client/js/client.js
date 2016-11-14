@@ -20,7 +20,7 @@ window.closeWidgets = function closeWidgets() {
 }
 
 // Init
+//GalleryHelper.bindImages();
 //FormHelper.init();
 FacebookHelper.populateCalendar();
 MenuHelper.bindNavItems();
-//GalleryHelper.bindImages();

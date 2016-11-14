@@ -12,13 +12,44 @@ layout: compress
         {% include hashbrown/get_child_content_ids id=page.meta.id %}
         {% assign menu_item_ids = result %}
 
+        {% assign all_menu_item_tags = "" | split:"|" %}
+
+        {% for menu_item_id in menu_item_ids %}
+            {% include hashbrown/get_content_by_id id=menu_item_id %}
+            {% assign menu_item = result %}
+            {% assign menu_item_tags = menu_item.tags | split:"," %}
+
+            {% for tag in menu_item_tags %}
+                {% if all_menu_item_tags contains tag %}
+                {% else %}
+                    {% assign all_menu_item_tags = all_menu_item_tags | push: tag %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
         <div class="page menu-page">
             <div class="menu-nav">
                 <button class="menu-nav-toggle" onclick="toggleWidget('menu-nav');">
                     <span class="fa fa-th-list"></span>
                 </button>
 
-                {% include menuItems.html %}
+                <div class="menu-items">
+                    {% for tag in all_menu_item_tags %}
+                        <h4>{{ tag }}</h4>
+
+                        {% for menu_item_id in menu_item_ids %}
+                            {% include hashbrown/get_content_by_id id=menu_item_id %}
+                            {% assign menu_item = result %}
+                            
+                            {% if menu_item.tags contains tag %}
+                                <button class="menu-item" data-id="{{ menu_item.meta.id }}">
+                                    <p class="price">{{ menu_item.price }} kr.</p>
+                                    <p class="title">{{ menu_item.title }}</p>
+                                </button>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="menu-gallery grid">
