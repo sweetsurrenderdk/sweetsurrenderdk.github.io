@@ -6,14 +6,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: $white;
-    height: calc(100vh - 5rem);
+    height: 50rem;
     
     @media($sm) {
-        height: calc(100vh - 4rem);
+        height: 45rem;;
     }
     
     @media($xs) {
-        height: calc(100vh - 3rem);
+        height: 40rem;
     }
 
     .container {

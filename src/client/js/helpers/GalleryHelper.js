@@ -4,21 +4,26 @@ class GalleryHelper {
     static bindImages() {
         let images = document.querySelectorAll('section img, section .image');
 
+        function onClick(e) {
+            e.stopPropagation();
+
+            let src = this.getAttribute('src');
+
+            if(!src) {
+                src = this.style.backgroundImage;
+                
+                src = src.replace('url(','').replace(')','').replace(/\"/gi, "");
+            }
+            
+            GalleryHelper.openModal(src);            
+        }
+
         if(images) {
             for(let i = 0; i < images.length; i++) {
                 let image = images[i];
 
-                image.addEventListener('click', function() {
-                    let src = this.getAttribute('src');
-
-                    if(!src) {
-                        src = this.style.backgroundImage;
-                        
-                        src = src.replace('url(','').replace(')','').replace(/\"/gi, "");
-                    }
-                    
-                    GalleryHelper.openModal(src);            
-                });
+                image.removeEventListener('click', onClick, false);
+                image.addEventListener('click', onClick, false);
             }
         }
     }

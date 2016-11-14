@@ -58,6 +58,7 @@ body {
             position: absolute;
             top: 40%;
             left: 50%;
+            width: 100%;
             transform: translate(-50%, -50%);
 
             img.modal-body {
@@ -95,6 +96,11 @@ body {
         height: 100%;        
 
         section {
+            .section-achor {
+                position: relative;
+                top: -30px;
+            }
+
             ol, ul {
                 padding: 1em 0em 1em 2em;
 

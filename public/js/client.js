@@ -71,7 +71,7 @@
 	//FormHelper.init();
 	FacebookHelper.populateCalendar();
 	MenuHelper.bindNavItems();
-	GalleryHelper.bindImages();
+	//GalleryHelper.bindImages();
 
 /***/ },
 /* 1 */
@@ -521,21 +521,26 @@
 	        value: function bindImages() {
 	            var images = document.querySelectorAll('section img, section .image');
 
+	            function onClick(e) {
+	                e.stopPropagation();
+
+	                var src = this.getAttribute('src');
+
+	                if (!src) {
+	                    src = this.style.backgroundImage;
+
+	                    src = src.replace('url(', '').replace(')', '').replace(/\"/gi, "");
+	                }
+
+	                GalleryHelper.openModal(src);
+	            }
+
 	            if (images) {
 	                for (var i = 0; i < images.length; i++) {
 	                    var image = images[i];
 
-	                    image.addEventListener('click', function () {
-	                        var src = this.getAttribute('src');
-
-	                        if (!src) {
-	                            src = this.style.backgroundImage;
-
-	                            src = src.replace('url(', '').replace(')', '').replace(/\"/gi, "");
-	                        }
-
-	                        GalleryHelper.openModal(src);
-	                    });
+	                    image.removeEventListener('click', onClick, false);
+	                    image.addEventListener('click', onClick, false);
 	                }
 	            }
 	        }

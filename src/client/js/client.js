@@ -23,4 +23,4 @@ window.closeWidgets = function closeWidgets() {
 //FormHelper.init();
 FacebookHelper.populateCalendar();
 MenuHelper.bindNavItems();
-GalleryHelper.bindImages();
+//GalleryHelper.bindImages();

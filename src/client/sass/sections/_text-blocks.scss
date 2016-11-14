@@ -1,10 +1,18 @@
 .page >section.text-blocks {
     .text-block {
         display: flex;
+        
+        @media($sm) {
+            flex-direction: column;
+        }
 
         .text, .image {
             flex-grow: 1;
             width: 50%;
+
+            @media($sm) {
+                width: 100%;
+            }
         }
 
         .image {

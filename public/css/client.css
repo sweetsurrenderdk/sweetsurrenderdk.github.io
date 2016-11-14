@@ -136,6 +136,7 @@ body {
       position: absolute;
       top: 40%;
       left: 50%;
+      width: 100%;
       transform: translate(-50%, -50%); }
       body .modal-backdrop .modal img.modal-body {
         display: block;
@@ -159,6 +160,9 @@ body {
     display: flex; }
   body .page {
     height: 100%; }
+    body .page section .section-achor {
+      position: relative;
+      top: -30px; }
     body .page section ol, body .page section ul {
       padding: 1em 0em 1em 2em; }
       body .page section ol li, body .page section ul li {
@@ -503,13 +507,13 @@ body[data-active-widget="menu"] .pages-container {
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
-  height: calc(100vh - 5rem); }
+  height: 50rem; }
   @media (max-width: 991px) {
     .page > section.full-height-banner {
-      height: calc(100vh - 4rem); } }
+      height: 45rem; } }
   @media (max-width: 767px) {
     .page > section.full-height-banner {
-      height: calc(100vh - 3rem); } }
+      height: 40rem; } }
   .page > section.full-height-banner .container h1 {
     text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.5);
     margin-bottom: 1em; }
@@ -522,9 +526,15 @@ body[data-active-widget="menu"] .pages-container {
 
 .page > section.text-blocks .text-block {
   display: flex; }
+  @media (max-width: 991px) {
+    .page > section.text-blocks .text-block {
+      flex-direction: column; } }
   .page > section.text-blocks .text-block .text, .page > section.text-blocks .text-block .image {
     flex-grow: 1;
     width: 50%; }
+    @media (max-width: 991px) {
+      .page > section.text-blocks .text-block .text, .page > section.text-blocks .text-block .image {
+        width: 100%; } }
   .page > section.text-blocks .text-block .image img {
     width: calc(100% - 8em);
     margin: 2em auto;
