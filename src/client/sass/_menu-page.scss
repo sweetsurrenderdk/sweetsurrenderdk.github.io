@@ -60,6 +60,13 @@ body {
                 }
             }
 
+            h4 {
+                margin: 0px;
+                padding: 1rem 1rem;
+                color: $white;
+                background-color: $black;
+            }
+
             .menu-items {
                 height: 100%;
                 overflow-y: auto;
@@ -117,7 +124,7 @@ body {
                     padding-top: 100%;
                 }
 
-                &:focus, &:hover {
+                &:focus {
                     border-color: $white;
 
                     .info {
@@ -189,8 +196,10 @@ body {
                     }
                 }
 
-                &[data-size="0"] {
-                    width: 100%;
+                width: 25%;
+                
+                @media($sm) {
+                    width: 50%;
                 }
                 
                 &[data-size="1"] {
