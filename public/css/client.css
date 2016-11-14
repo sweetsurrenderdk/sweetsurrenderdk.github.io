@@ -912,9 +912,9 @@ body .page.menu-page {
         content: '';
         display: block;
         padding-top: 100%; }
-      body .page.menu-page .menu-gallery .menu-item:focus {
+      body .page.menu-page .menu-gallery .menu-item:focus, body .page.menu-page .menu-gallery .menu-item:hover {
         border-color: #fff; }
-        body .page.menu-page .menu-gallery .menu-item:focus .info .details {
+        body .page.menu-page .menu-gallery .menu-item:focus .info .details, body .page.menu-page .menu-gallery .menu-item:hover .info .details {
           height: auto;
           opacity: 1;
           padding: 1em; }

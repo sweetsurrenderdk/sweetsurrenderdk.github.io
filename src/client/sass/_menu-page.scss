@@ -124,7 +124,7 @@ body {
                     padding-top: 100%;
                 }
 
-                &:focus {
+                &:focus, &:hover {
                     border-color: $white;
 
                     .info {
