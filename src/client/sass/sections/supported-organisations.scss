@@ -10,6 +10,11 @@ section.supported-organisations {
             float: left;
             width: 25%;
 
+            img {
+                width: 100%;
+                max-width: 100px;
+            }
+
             @media($sm) {
                 width: 50%;
             }
