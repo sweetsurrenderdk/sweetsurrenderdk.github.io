@@ -1,6 +1,7 @@
 {% if page.meta.language == 'da' %}
     {% assign str_mon = 'Mandag' %}
-    {% assign str_tue_fri = 'Tirsdag - Fredag' %}
+    {% assign str_tue_thu = 'Tirsdag - Torsdag' %}
+    {% assign str_fri = 'Fredag' %}
     {% assign str_sat_holidays = 'Lørdag og helligdage' %}
     {% assign str_sun = 'Søndag' %}
     {% assign str_closed = 'Lukket' %}
@@ -9,7 +10,8 @@
 
 {% else %}
     {% assign str_mon = 'Monday' %}
-    {% assign str_tue_fri = 'Tuesday - Friday' %}
+    {% assign str_tue_thu = 'Tuesday - Thursday' %}
+    {% assign str_fri = 'Friday' %}
     {% assign str_sat_holidays = 'Saturday & holidays' %}
     {% assign str_sun = 'Sunday' %}
     {% assign str_closed = 'Closed' %}
@@ -39,8 +41,12 @@
                             <td class="hours">{{ str_closed }}</td>
                         </tr>
                         <tr>
-                            <td class="label">{{ str_tue_fri }}</td>
+                            <td class="label">{{ str_tue_thu }}</td>
                             <td class="hours">10 - 20</td>
+                        </tr>
+                        <tr>
+                            <td class="label">{{ str_fri }}</td>
+                            <td class="hours">10 - 17</td>
                         </tr>
                         <tr>
                             <td class="label">{{ str_sat_holidays }}</td>
