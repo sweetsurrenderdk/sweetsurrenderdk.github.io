@@ -3,6 +3,7 @@
     {% assign str_tue_thu = 'Tirsdag - Torsdag' %}
     {% assign str_fri = 'Fredag' %}
     {% assign str_sat_holidays = 'Lørdag og helligdage' %}
+    {% assign str_holidays_close = '(lukket påske og jul/nytår)' %}
     {% assign str_sun = 'Søndag' %}
     {% assign str_closed = 'Lukket' %}
     {% assign str_health = 'Se Fødevarestyrelsens smiley-rapporter' %}
@@ -13,6 +14,7 @@
     {% assign str_tue_thu = 'Tuesday - Thursday' %}
     {% assign str_fri = 'Friday' %}
     {% assign str_sat_holidays = 'Saturday & holidays' %}
+    {% assign str_holidays_close = '(closed Easter and Christmas)' %}
     {% assign str_sun = 'Sunday' %}
     {% assign str_closed = 'Closed' %}
     {% assign str_health = 'Health inspection reports from Fødevarestyrelsen' %}
@@ -53,7 +55,7 @@
                             <td class="hours">10 - 16</td>
                         </tr>
                         <tr>
-                            <td colspan="2">(lukket påske og jul)</td>
+                            <td colspan="2">{{ str_holidays_close }}</td>
                         </tr>
                         <tr>
                             <td class="label">{{ str_sun }}</td>
