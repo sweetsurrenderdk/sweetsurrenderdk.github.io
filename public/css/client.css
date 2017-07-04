@@ -349,7 +349,8 @@ nav {
       line-height: 5rem; }
       @media (max-width: 991px) {
         nav .container .nav-brand, nav .container .pages a {
-          line-height: 4rem; } }
+          line-height: 4rem;
+          height: auto; } }
       @media (max-width: 767px) {
         nav .container .nav-brand, nav .container .pages a {
           line-height: 3rem; } }
