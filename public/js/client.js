@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -73,15 +73,15 @@
 	FacebookHelper.populateCalendar();
 	MenuHelper.bindNavItems();
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -199,9 +199,9 @@
 
 	window.debug = DebugHelper;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -246,9 +246,9 @@
 
 	window.MenuHelper = MenuHelper;
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -309,6 +309,8 @@
 
 	            var autoLinker = new Autolinker();
 
+	            console.log('FacebookHelper: Fetching events...');
+
 	            FacebookHelper.apiCall('events', '&fields=cover,name,start_time,end_time,description').then(function (response) {
 	                var upcoming = 0;
 	                var thisDate = new Date();
@@ -317,6 +319,8 @@
 	                    var evt = response.data[i];
 	                    var eventElement = eventElementTemplate.cloneNode(true);
 	                    var description = evt.description;
+
+	                    console.log('FacebookHelper: Got event', evt);
 
 	                    var start = new Date(evt.start_time);
 	                    var end = new Date(evt.end_time);
@@ -333,8 +337,14 @@
 
 	                    description = autoLinker.link(description);
 
+	                    var dateString = start.getDate() + '/' + (start.getMonth() + 1) + '/' + start.getFullYear();
+
+	                    if (isNaN(start.getDate())) {
+	                        dateString = evt.start_time;
+	                    }
+
 	                    eventElement.querySelector('.name').innerHTML = evt.name;
-	                    eventElement.querySelector('.date').innerHTML = start.getDate() + '/' + (start.getMonth() + 1) + '/' + start.getFullYear();
+	                    eventElement.querySelector('.date').innerHTML = dateString;
 	                    eventElement.querySelector('.description').innerHTML = description;
 
 	                    var hours = eventElement.querySelector('.hours');
@@ -394,9 +404,9 @@
 
 	window.FacebookHelper = FacebookHelper;
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -501,9 +511,9 @@
 
 	window.FormHelper = FormHelper;
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -592,5 +602,5 @@
 
 	window.GalleryHelper = GalleryHelper;
 
-/***/ }
+/***/ })
 /******/ ]);

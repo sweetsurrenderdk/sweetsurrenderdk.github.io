@@ -48,6 +48,8 @@ class FacebookHelper {
 
         let autoLinker = new Autolinker();
 
+        console.log('FacebookHelper: Fetching events...');
+
         FacebookHelper.apiCall('events', '&fields=cover,name,start_time,end_time,description')
         .then((response) => {
             let upcoming = 0;
@@ -57,7 +59,9 @@ class FacebookHelper {
                 let evt = response.data[i];
                 let eventElement = eventElementTemplate.cloneNode(true);
                 let description = evt.description;
-                
+               
+                console.log('FacebookHelper: Got event', evt);
+
                 let start = new Date(evt.start_time);
                 let end = new Date(evt.end_time);   
 
@@ -73,8 +77,14 @@ class FacebookHelper {
 
                 description = autoLinker.link(description);
 
+                let dateString = start.getDate() + '/' + (start.getMonth() + 1) + '/' + start.getFullYear();
+
+                if(isNaN(start.getDate())) {
+                    dateString = evt.start_time;
+                }
+
                 eventElement.querySelector('.name').innerHTML = evt.name;
-                eventElement.querySelector('.date').innerHTML = start.getDate() + '/' + (start.getMonth() + 1) + '/' + start.getFullYear();
+                eventElement.querySelector('.date').innerHTML = dateString;
                 eventElement.querySelector('.description').innerHTML = description;
                 
                 let hours = eventElement.querySelector('.hours');
