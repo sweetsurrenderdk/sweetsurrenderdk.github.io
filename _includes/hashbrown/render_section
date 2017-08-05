@@ -1,5 +1,5 @@
 {% if include.section and include.section.template %}
-    {% include sections/{{ include.section.template }}.html section=include.section %}
+    {% include partials/{{ include.section.template }}.html section=include.section %}
 {% else %}
     <div class="error">
         Error: Section has no template
