@@ -2,7 +2,7 @@
 title: 'Italian sandwich'
 description: 'Organic homemade whole-grain bun with chili-mayonnaise, lettuce, Italian salami, bell pepper, and fresh tomato. '
 color: '#ffffff'
-price: '60'
+price: '65'
 size: '1'
 category: sandwichSalad
 tags: Sandwich/salad
