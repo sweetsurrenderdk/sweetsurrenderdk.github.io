@@ -1,8 +1,8 @@
 ---
 title: 'Italian sandwich'
-description: 'Økologisk hjemmebagt grovbolle med chili mayonnaise, salatblade, italiensk spegepølse, peberfrugt og frisk tomat. Kan bestilles som en salat. Vælg mellem økologisk grovbolle, rugbrød eller glutenfri brød (glutenfri +20kr.)'
+description: 'Økologisk hjemmebagt grovbolle med chili mayonnaise, salatblade, italiensk spegepølse, peberfrugt og frisk tomat. Vælg mellem økologisk grovbolle, rugbrød eller glutenfri brød (glutenfri +10kr.)'
 color: '#ffffff'
-price: '60'
+price: '65'
 size: '1'
 category: sandwichSalad
 tags: Sandwich/salat
