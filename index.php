@@ -12,7 +12,11 @@ function slugify($text) {
 }
 
 if($_SERVER['REQUEST_URI'] === '/') {
-    header('Location: /en/home/');
+    if(strpos($_SERVER['HTTP_ACCEPT_LANGUAGE'], 'DK') !== false) {
+        header('Location: /da/hjem/');
+    } else {
+        header('Location: /en/home/');
+    }
 
 } else {
     require_once(__DIR__ . '/lib/hashbrown-driver/index.php');
