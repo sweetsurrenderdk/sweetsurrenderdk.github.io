@@ -1,0 +1,3 @@
+[submodule "lib/hashbrown-driver"]
+	path = lib/hashbrown-driver
+	url = https://github.com/HashBrownCMS/hashbrown-php-driver.git

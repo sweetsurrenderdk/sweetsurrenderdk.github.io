@@ -1,7 +1,0 @@
-{% assign result = "" | split:"|" %}
-
-{% for p in site.pages %}
-    {% if p.meta.language == page.meta.language %}
-        {% assign result = result | push: p %}
-    {% endif %}
-{% endfor %}
