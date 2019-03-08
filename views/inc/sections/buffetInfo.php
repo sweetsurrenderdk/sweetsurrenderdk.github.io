@@ -11,9 +11,9 @@
         <?php echo $content->body; ?>
 
         <div class="flex images">
-            <?php foreach($content->images as $image_id) { ?>
+            <?php foreach($content->images as $array_item) { ?>
                 <div class="image-container">
-                    <div class="image" style="background-image: url('<?php echo HashBrown\get_media_url($image_id); ?>');"></div>
+                    <div class="image" style="background-image: url('<?php echo HashBrown\get_media_url($array_item->value); ?>');"></div>
                 </div>
             <?php } ?>
         </div>

@@ -1,0 +1,1 @@
+<?php $config = [ 'paths' => [ 'content' => '/content', 'media' => '/media', 'views' => '/views' ] ]; ?>

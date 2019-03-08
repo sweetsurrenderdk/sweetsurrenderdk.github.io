@@ -2,7 +2,7 @@
 
 if($page->language == 'da') {
     $str_mon = 'Mandag';
-    $str_tue_thu = 'Tirsdag - Torsdag';
+    $str_tue_thu = 'Tirsdag - Torsdag';
     $str_fri = 'Fredag';
     $str_sat_holidays = 'Lørdag og helligdage';
     $str_holidays_close = '(lukket påske, jul og nytår)';
@@ -22,9 +22,11 @@ if($page->language == 'da') {
     $str_sun = 'Sunday';
     $str_closed = 'Closed';
     $str_health = 'Health inspection reports from Fødevarestyrelsen';
-    $str_putaitu = 'Website donated by <a href="http://putaitu.com/en/home" target="_blank">Putaitu Productions</a> and managed with <a href="http://hashbrown.rocks" target="_blank">HashBrown CMS</a>';
+    $str_putaitu = 'Website donated by <a href="//putaitu.com" target="_blank">Putaitu</a> and managed with <a href="//hashbrown.rocks" target="_blank">HashBrown CMS</a>';
     $str_easterclosed = 'Easter closed';
     $str_easterclosed2 = 'March 27th to April 2nd';
+
+}
 
 ?>
 

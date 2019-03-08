@@ -4,7 +4,9 @@
             <h2><?php echo $content->heading; ?></h2>
         <?php } ?>
 
-        <?php foreach(text_block in $content->textBlocks ) { ?>
+        <?php foreach($content->textBlocks as $array_item) { ?>
+            <?php $text_block = $array_item->value; ?>
+
             <div class="text-block">
                 <?php if(isset($text_block->text)) { ?>
                     <div class="text"><?php echo $text_block->text; ?></div>

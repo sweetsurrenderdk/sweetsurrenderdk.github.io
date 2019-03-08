@@ -8,7 +8,22 @@ if($page->language == 'da') {
     $opposite_language = 'da';
 }
 
-foreach(HashBrown\get_all_contents as $p) { 
+$all_pages = HashBrown\get_all_contents();
+
+usort($all_pages, function($a, $b) {
+    $a_order = 0;
+    $b_order = 0;
+    
+    if(isset($a->navOrder)) { $a_order = $a->navOrder; }
+    if(isset($b->navOrder)) { $b_order = $b->navOrder; }
+
+    if($a_order < $b_order) { return -1; }
+    if($a_order > $b_order) { return 1; }
+
+    return 0;
+});
+
+foreach($all_pages as $p) { 
     if($p->language === $opposite_language & $p->id === $page->id) {
         $opposite_page_url = $p->url;
 
@@ -27,8 +42,8 @@ foreach(HashBrown\get_all_contents as $p) {
        
         <div class="pages-container">
             <div class="pages">
-                <?php foreach(HashBrown\get_all_contents as $p) { ?> 
-                    <?php if(!$p->showInNav) { continue; } ?>
+                <?php foreach($all_pages as $p) { ?> 
+                    <?php if(!isset($p->showInNav) || $p->language !== $page->language) { continue; } ?>
                 
                     <a href="<?php echo $p->url; ?>"><?php echo $p->title; ?></a>
                 <?php } ?>

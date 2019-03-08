@@ -11,10 +11,6 @@
     <link rel="stylesheet" href="/public/css/client.css">
     <link rel="canonical" href="http://sweetsurrender.dk/da/hjem">
 
-    {% if include.redirect %}
-        <meta http-equiv="refresh" content="0; url=/da/hjem">
-    {% endif %}
-
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
