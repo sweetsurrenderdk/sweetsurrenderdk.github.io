@@ -9,7 +9,7 @@
     {% assign str_health = 'Se Fødevarestyrelsens smiley-rapporter' %}
     {% assign str_putaitu = 'Website doneret af <a href="http://putaitu.com/da/hjem" target="_blank">Putaitu Productions</a> og administreret med <a href="http://hashbrown.rocks" target="_blank">HashBrown CMS</a>' %}
     {% assign str_easterclosed = 'Påskelukket' %}
-    {% assign str_easterclosed2 = '27/3 til 2/4' %}
+    {% assign str_easterclosed2 = '15/4 til 22/4' %}
 
 {% else %}
     {% assign str_mon = 'Monday' %}
@@ -22,7 +22,7 @@
     {% assign str_health = 'Health inspection reports from Fødevarestyrelsen' %}
     {% assign str_putaitu = 'Website donated by <a href="http://putaitu.com/en/home" target="_blank">Putaitu Productions</a> and managed with <a href="http://hashbrown.rocks" target="_blank">HashBrown CMS</a>' %}
     {% assign str_easterclosed = 'Easter closed' %}
-    {% assign str_easterclosed2 = 'March 27th to April 2nd' %}
+    {% assign str_easterclosed2 = 'April 15th to April 22nd' %}
 
 {% endif %}
 
@@ -64,6 +64,10 @@
                         <tr>
                             <td class="label">{{ str_sun }}</td>
                             <td class="hours">{{ str_closed }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">{{ str_easterclosed }}</td>
+                            <td class="hours">{{ str_easterclosed2 }}</td>
                         </tr>
                     </table>
                 </div>
