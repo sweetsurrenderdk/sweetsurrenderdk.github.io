@@ -1,11 +1,11 @@
 {% if page.meta.language == 'da' %}
     {% assign home_url = '/da/hjem/' %}
     {% assign opposite_language = 'en' %}
-    {% assign easter_closed = 'Fra 2. juli til 4. august har vi åbent mandag-lørdag fra kl. 10.00-15.00 alle dagene' %}
+    {% assign easter_closed = 'Sommerlukket fra 7. juli til 4. august' %}
 {% else %}
     {% assign home_url = '/en/home/' %}
     {% assign opposite_language = 'da' %}
-    {% assign easter_closed = 'From July 2nd to August 4th we are open Monday-Saturday from 10.00-15.00 all days' %}
+    {% assign easter_closed = 'Closed from July 7th to August 4th' %}
 {% endif %}
 
 {% for p in site.pages %}
@@ -70,4 +70,5 @@
         </div>
     </div> 
 </div>
+<div style="position: fixed; width: 100%; background-color: #FFF; z-index: 50; background-color: yellow; font-size: large; font-weight: bold; text-align: center;">{{ easter_closed }}</div>
 <button class="backdrop" onclick="closeWidgets();"></button>
