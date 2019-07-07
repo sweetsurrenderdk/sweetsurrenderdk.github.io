@@ -1,30 +1,14 @@
 <?php
 
+$settings = HashBrown\get_content_by_id('7aa545d38aa1316c', $page->language);
+
 if($page->language == 'da') {
-    $str_mon = 'Mandag';
-    $str_tue_thu = 'Tirsdag - Torsdag';
-    $str_fri = 'Fredag';
-    $str_sat_holidays = 'Lørdag og helligdage';
-    $str_holidays_close = '(lukket påske, jul og nytår)';
-    $str_sun = 'Søndag';
-    $str_closed = 'Lukket';
     $str_health = 'Se Fødevarestyrelsens smiley-rapporter';
     $str_putaitu = 'Website doneret af <a href="http://putaitu.com/da/hjem" target="_blank">Putaitu Productions</a> og administreret med <a href="http://hashbrown.rocks" target="_blank">HashBrown CMS</a>';
-    $str_easterclosed = 'Påskelukket';
-    $str_easterclosed2 = '27/3 til 2/4';
 
 } else {
-    $str_mon = 'Monday';
-    $str_tue_thu = 'Tuesday - Thursday';
-    $str_fri = 'Friday';
-    $str_sat_holidays = 'Saturday & holidays';
-    $str_holidays_close = '(closed Easter and Christmas)';
-    $str_sun = 'Sunday';
-    $str_closed = 'Closed';
     $str_health = 'Health inspection reports from Fødevarestyrelsen';
     $str_putaitu = 'Website donated by <a href="//putaitu.com" target="_blank">Putaitu</a> and managed with <a href="//hashbrown.rocks" target="_blank">HashBrown CMS</a>';
-    $str_easterclosed = 'Easter closed';
-    $str_easterclosed2 = 'March 27th to April 2nd';
 
 }
 
@@ -46,29 +30,22 @@ if($page->language == 'da') {
                 <div class="opening-hours">
                     <span class="fa fa-clock-o"></span>
                     <table>
-                        <tr>
-                            <td class="label"><?php echo $str_mon; ?></td>
-                            <td class="hours">10 - 16</td>
-                        </tr>
-                        <tr>
-                            <td class="label"><?php echo $str_tue_thu; ?></td>
-                            <td class="hours">10 - 20</td>
-                        </tr>
-                        <tr>
-                            <td class="label"><?php echo $str_fri; ?></td>
-                            <td class="hours">10 - 16</td>
-                        </tr>
-                        <tr>
-                            <td class="label"><?php echo $str_sat_holidays; ?></td>
-                            <td class="hours">10 - 16</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><?php echo $str_holidays_close; ?></td>
-                        </tr>
-                        <tr>
-                            <td class="label"><?php echo $str_sun; ?></td>
-                            <td class="hours"><?php echo $str_closed; ?></td>
-                        </tr>
+                        <?php if(isset($settings->openingHours)) { ?>
+                            <?php foreach($settings->openingHours as $array_item) { ?>
+                                <?php $line = $array_item->value; ?>
+
+                                <?php if(isset($line->hours) && $line->hours) { ?>
+                                    <tr>
+                                        <td class="label"><?php echo $line->weekdays; ?></td>
+                                        <td class="hours"><?php echo $line->hours; ?></td>
+                                    </tr>
+                                <?php } else { ?>
+                                    <tr>
+                                        <td colspan="2"><?php echo $line->weekdays; ?></td>
+                                    </tr>
+                                <?php } ?>
+                            <?php } ?>
+                        <?php } ?>
                     </table>
                 </div>
                 <div class="social-links">

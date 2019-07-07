@@ -1,13 +1,13 @@
 <?php
 
+$settings = HashBrown\get_content_by_id('7aa545d38aa1316c', $page->language);
+
 if($page->language == 'da') {
     $home_url = '/da/hjem/';
     $opposite_language = 'en';
-    $top_text = 'Sommerlukket fra 7. juli til og med 4. august'
 } else {
     $home_url = '/en/home/';
     $opposite_language = 'da';
-    $top_text = 'Summer closed from July 7th to August 4th'
 }
 
 $all_pages = HashBrown\get_all_contents();
@@ -85,5 +85,9 @@ foreach($all_pages as $p) {
         </div>
     </div> 
 </div>
-<div style="position: fixed; width: 100%; background-color: #FFF; z-index: 50; background-color: yellow; font-size: large; font-weight: bold; text-align: center;">{{ top_text }}</div>
+
+<?php if(isset($settings->navText)) { ?>
+    <div style="position: fixed; width: 100%; background-color: #FFF; z-index: 50; background-color: yellow; font-size: large; font-weight: bold; text-align: center;"><?php echo $settings->navText; ?></div>
+<?php } ?>
+
 <button class="backdrop" onclick="closeWidgets();"></button>

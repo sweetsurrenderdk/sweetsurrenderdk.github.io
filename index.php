@@ -23,8 +23,6 @@ if($_SERVER['REQUEST_URI'] === '/') {
 
     HashBrown\init(__DIR__);
 
-    $page = HashBrown\get_content_by_url($_SERVER['REQUEST_URI']);
-
     HashBrown\render_current_page();
 }
 
