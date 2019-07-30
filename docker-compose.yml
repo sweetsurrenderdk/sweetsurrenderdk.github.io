@@ -1,0 +1,12 @@
+version: "3.4"
+
+services:
+    php:
+        image: php:apache
+        container_name: "sweetsurrender-dk"
+        ports:
+            - "1000:80"
+        restart: always
+        volumes:
+            - "./:/var/www/html/"
+            - "./site.conf:/etc/apache2/sites-available/000-default.conf"

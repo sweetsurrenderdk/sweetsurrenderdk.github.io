@@ -1,7 +1,0 @@
-{% assign result = nil %}
-
-{% for p in site.pages %}
-    {% if p.meta.id == include.id and page.meta.language == p.meta.language %}
-        {% assign result = p %}            
-    {% endif %} 
-{% endfor %}
