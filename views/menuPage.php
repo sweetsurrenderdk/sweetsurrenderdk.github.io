@@ -9,8 +9,6 @@
 
         $menu_items = HashBrown\get_content_children($page->id, $page->language);
 
-        $menu_items = array_filter($menu_items, function($p) { global $page; return $p->language == $page->language; });
-        
         $menu_item_tags = [];
 
         foreach($menu_items as $menu_item) {
