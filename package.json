@@ -26,6 +26,6 @@
     "webpack": "^1.13.3"
   },
   "dependencies": {
-    "node-sass": "^3.12.2"
+    "node-sass": "^4.14.1"
   }
 }
