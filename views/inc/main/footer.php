@@ -4,11 +4,9 @@ $settings = HashBrown\get_content_by_id('7aa545d38aa1316c', $page->language);
 
 if($page->language == 'da') {
     $str_health = 'Se Fødevarestyrelsens smiley-rapporter';
-    $str_putaitu = 'Website doneret af <a href="http://putaitu.com/da/hjem" target="_blank">Putaitu Productions</a> og administreret med <a href="http://hashbrown.rocks" target="_blank">HashBrown CMS</a>';
 
 } else {
     $str_health = 'Health inspection reports from Fødevarestyrelsen';
-    $str_putaitu = 'Website donated by <a href="//putaitu.com" target="_blank">Putaitu</a> and managed with <a href="//hashbrown.rocks" target="_blank">HashBrown CMS</a>';
 
 }
 
@@ -67,11 +65,8 @@ if($page->language == 'da') {
     <div class="copyright">
         <div class="container">
             <img class="copyright-logo" src="/public/img/logo.png" alt="Sweet Surrender logo" />
-            <p>Copyright 2013-2016 Café Sweet Surrender</p>
+	    <p>Copyright 2013-<?php echo date('Y'); ?> Café Sweet Surrender</p>
             <a href="http://www.findsmiley.dk/da-DK/Searching/DetailsView.htm?virk=521348" target="_blank"><?php echo $str_health; ?></a>
-            <br />
-            <br />
-            <p><?php echo $str_putaitu; ?></p>
         </div>
     </div>
 </footer>
